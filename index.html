@@ -2910,7 +2910,7 @@
 
   <nav>
     <a href="#top" aria-label="Go to top of page" style="display:inline-flex">
-      <img src="assets/virani-official-logo.png" alt="Virani Machinery & Co logo" fetchpriority="high" decoding="async">
+      <img src="assets/virani-official-logo.webp" alt="Virani Machinery & Co logo" fetchpriority="high" decoding="async">
     </a>
     <div class="links">
       <a href="#brands">Brands</a>
@@ -3041,9 +3041,9 @@
     <div class="wrap footer-inner"
       style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: center;">
       <div style="display: flex; align-items: center; gap: 16px;">
-        <img src="assets/virani-official-logo.png" alt="Virani Machinery" loading="lazy" decoding="async"
+        <img src="assets/virani-official-logo.webp" alt="Virani Machinery" loading="lazy" decoding="async"
           style="margin: 0; width: clamp(130px, 38vw, 180px); height: auto; border-radius: 16px;">
-        <img src="assets/GUJRATI LOGO.png" alt="Virani Machinery Gujarati logo" loading="lazy" decoding="async"
+        <img src="assets/GUJRATI LOGO.webp" alt="Virani Machinery Gujarati logo" loading="lazy" decoding="async"
           style="margin: 0; width: clamp(130px, 38vw, 180px); height: auto; object-fit: contain; border-radius: 16px;">
       </div>
       <div style="font-weight: 600; font-size: 15px; color: var(--navy); text-align: center;">© 1968 Virani Machinery & Co. • Dhasa Gam</div>
@@ -3579,7 +3579,7 @@
       BRANCH: 'main',
       ASSETS_DIR: 'assets',
       IMAGE_EXTENSIONS: ['jpg', 'jpeg', 'png', 'webp', 'avif'],
-      CACHE_KEY: 'virani-discovery-cache-v4',
+      CACHE_KEY: 'virani-discovery-cache-v5',
       STALE_TTL_MS: 5 * 60 * 1000,
       FALLBACK_MAX_MS: 7 * 24 * 60 * 60 * 1000
     };
@@ -3799,12 +3799,12 @@
     ];
 
     const APDS_LOGO_OVERRIDES = {
-      'Waterflo': 'assets/waterflo-logo.png',
-      'Kanan Plast': 'assets/kanan-logo.jpeg',
-      'Ganga Pipes': 'assets/ganga.png',
+      'Waterflo': 'assets/waterflo-logo.webp',
+      'Kanan Plast': 'assets/kanan-logo.webp',
+      'Ganga Pipes': 'assets/ganga.webp',
       'Birla Opus': 'assets/birla_opus_2_595513922e.webp',
-      'Mottero': 'assets/mottero-logo.png',
-      'Appu Xtra': 'assets/appuextra.png'
+      'Mottero': 'assets/mottero-logo.webp',
+      'Appu Xtra': 'assets/appuextra.webp'
     };
 
     const APDS_TAGLINE_OVERRIDES = {
@@ -3895,10 +3895,34 @@
           e.name = 'NO_ASSETS_DIR';
           throw e;
         }
+
+        const PRIORITY = { 'avif': 1, 'webp': 2, 'jpg': 3, 'jpeg': 4, 'png': 5 };
+        const baseMap = {};
+        const deduplicatedEntries = [];
+        assetsEntries.forEach(entry => {
+          if ((entry.type === 'blob' || entry.type === 'file') && isImageFile(entry.path)) {
+            const ext = entry.path.split('.').pop().toLowerCase();
+            const base = entry.path.slice(0, -(ext.length + 1));
+            if (!baseMap[base]) {
+              baseMap[base] = entry;
+            } else {
+              const currentExt = baseMap[base].path.split('.').pop().toLowerCase();
+              const pNew = PRIORITY[ext] || 99;
+              const pOld = PRIORITY[currentExt] || 99;
+              if (pNew < pOld) {
+                baseMap[base] = entry;
+              }
+            }
+          } else {
+            deduplicatedEntries.push(entry);
+          }
+        });
+        Object.keys(baseMap).forEach(k => deduplicatedEntries.push(baseMap[k]));
+
         const brandMap = {};
         const looseFiles = [];
         const potentialSubProducts = [];
-        assetsEntries.forEach(entry => {
+        deduplicatedEntries.forEach(entry => {
           const rel = entry.path === assetsDir ? '' : entry.path.slice(assetsPrefix.length);
           if (!rel) return;
           const slash = rel.indexOf('/');
