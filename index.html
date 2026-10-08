@@ -2559,7 +2559,7 @@
 
     <nav>
       <a href="#top" aria-label="Go to top of page" style="display:inline-flex">
-        <img src="assets/virani-official-logo.jpg" alt="Virani Machinery & Co logo">
+        <img src="assets/virani-official-logo.jpg" alt="Virani Machinery & Co logo" fetchpriority="high" decoding="async">
       </a>
       <div class="links">
         <a href="#brands">Brands</a>
@@ -2594,7 +2594,7 @@
           <span class="corner tr"></span>
           <span class="corner bl"></span>
           <span class="corner br"></span>
-          <img src="assets/GUJRATI LOGO.jpeg" alt="Virani Machinery Gujarati logo">
+          <img src="assets/GUJRATI LOGO.jpeg" alt="Virani Machinery Gujarati logo" fetchpriority="high" decoding="async">
         </div>
       </div>
     </header>
@@ -2684,7 +2684,7 @@
 
     <footer class="footer">
       <div class="wrap footer-inner">
-        <img src="assets/virani-official-logo.jpg" alt="Virani Machinery">
+        <img src="assets/virani-official-logo.jpg" alt="Virani Machinery" loading="lazy" decoding="async">
         <div>© 1968 Virani Machinery & Co. • Dhasa Gam</div>
       </div>
     </footer>
@@ -3329,6 +3329,7 @@
         img.src = imgPath;
         img.alt = titleFromPath(imgPath) + ' - ' + (brandName || '');
         img.loading = 'lazy';
+        img.decoding = 'async';
         img.setAttribute('draggable', 'false');
         img.onerror = function () {
           const placeholder = document.createElement('div');
@@ -3613,12 +3614,15 @@
       function discoverProducts() {
         const mount = document.getElementById('productShowcase');
         if (!mount) return Promise.resolve([]);
+        const cached = cacheRead();
+        if (cached && (Date.now() - cached.timestamp < GITHUB_PRODUCT_DISCOVERY.STALE_TTL_MS)) {
+          return Promise.resolve(cached.brands);
+        }
         mount.innerHTML =
           '<div class="auto-loading">' +
           '<span class="spinner" aria-hidden="true"></span>' +
           'Discovering brand products from the repository…' +
           '</div>';
-        const cached = cacheRead();
         return discoverFresh()
           .catch(err => {
             if (cached) {
@@ -3680,7 +3684,7 @@
           if (bnNorm === 'birlaopus') section.classList.add('birla');
           const logoHtml = (() => {
             if (brand.logoPath) {
-              return '<img src="' + brand.logoPath + '" alt="' + brand.displayName + ' logo">';
+              return '<img src="' + brand.logoPath + '" alt="' + brand.displayName + ' logo" loading="lazy" decoding="async">';
             }
             const first = (brand.displayName || '?').trim().charAt(0).toUpperCase();
             return '<span class="b-letter" aria-hidden="true">' + first + '</span>';
@@ -4081,7 +4085,7 @@
          subProducts.forEach(sp => {
             html += `
               <div class="prod sp-card" tabindex="0" role="button" data-brand="${escapeHtml(brandName)}" data-product-path="${escapeHtml(parentImg)}" data-sub-name="${escapeHtml(sp.name)}">
-                 <img src="${escapeHtml(sp.image)}" alt="${escapeHtml(sp.name)}" loading="lazy">
+                 <img src="${escapeHtml(sp.image)}" alt="${escapeHtml(sp.name)}" loading="lazy" decoding="async">
                  <div class="lp-ring" aria-hidden="true">
                    <svg viewBox="0 0 24 24"><circle class="bg" cx="12" cy="12" r="10"></circle><circle class="fg" cx="12" cy="12" r="10"></circle></svg>
                  </div>
