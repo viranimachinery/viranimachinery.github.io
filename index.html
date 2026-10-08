@@ -3217,7 +3217,7 @@
         BRANCH: 'main',
         ASSETS_DIR: 'assets',
         IMAGE_EXTENSIONS: ['jpg', 'jpeg', 'png', 'webp', 'avif'],
-        CACHE_KEY: 'virani-discovery-cache-v3',
+        CACHE_KEY: 'virani-discovery-cache-v4',
         STALE_TTL_MS: 5 * 60 * 1000,
         FALLBACK_MAX_MS: 7 * 24 * 60 * 60 * 1000
       };
@@ -4051,6 +4051,7 @@
                .sp-card {
                  background: #fff; border-radius: 18px; padding: 12px; box-shadow: 0 8px 24px rgba(18,59,115,0.06);
                  text-align: center; position: relative; border: 1px solid rgba(18,59,115,0.04);
+                 opacity: 1 !important; transform: none !important;
                }
                .sp-card img { width: 100%; aspect-ratio: 1; object-fit: contain; border-radius: 12px; margin-bottom: 12px; pointer-events: none; }
                .sp-card h4 { margin: 0; font-size: 15px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
