@@ -118,7 +118,7 @@
       max-width: 620px;
     }
 
-    .loc-box p:lang(gu) {
+    .loc-box p {
       font-size: clamp(14px, 1.4vw, 16px);
       font-weight: 500;
       line-height: 1.68;
@@ -239,7 +239,7 @@
         line-height: 1.75;
       }
 
-      .loc-box p:lang(gu) {
+      .loc-box p {
         font-size: clamp(14px, 3.8vw, 16px);
         line-height: 1.72;
       }
@@ -620,7 +620,8 @@
       align-items: center;
       justify-content: center;
       padding: 18px;
-      transition: .45s;
+      transition: transform .45s cubic-bezier(.2,.7,.2,1), translate 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      translate: 0 0;
       position: relative;
       overflow: hidden;
       box-shadow: 0 4px 18px rgba(18, 59, 115, .06);
@@ -629,10 +630,10 @@
     }
 
     .brand:hover {
-      transform: translateY(-10px) scale(1.02);
+      translate: 0 -24px;
       background: #f0f6ff;
       color: var(--navy);
-      box-shadow: 0 15px 40px rgba(18, 59, 115, .12);
+      box-shadow: 0 8px 24px rgba(18, 59, 115, .10);
     }
 
     .brand strong {
@@ -673,12 +674,13 @@
       border: 1px solid rgba(16, 35, 63, .08);
       position: relative;
       min-height: 390px;
-      transition: .45s;
+      transition: transform .45s cubic-bezier(.2,.7,.2,1), translate 0.2s ease, box-shadow 0.2s ease;
+      translate: 0 0;
     }
 
     .card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 30px 60px rgba(18, 59, 115, .14);
+      translate: 0 -24px;
+      box-shadow: 0 10px 30px rgba(18, 59, 115, .10);
     }
 
     .card-img {
@@ -696,7 +698,7 @@
     }
 
     .card:hover img {
-      transform: scale(1.08);
+      /* subtle */
     }
 
     .card-body {
@@ -850,12 +852,25 @@
       border-radius: 26px;
       overflow: hidden;
       box-shadow: 0 6px 20px rgba(18, 59, 115, .06);
-      transition: .4s;
+      
+      /* Premium Reveal Animation State */
+      opacity: 0;
+      transform: translateY(14px) scale(.985);
+      translate: 0 0;
+      transform-style: preserve-3d;
+      will-change: transform, opacity, box-shadow;
+      
+      transition:
+        transform 0.8s var(--ease-premium),
+        opacity 0.7s ease,
+        translate 0.2s ease,
+        box-shadow 0.2s ease;
+      transition-delay: calc(var(--i, 0) * 50ms);
     }
 
     .prod:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 45px rgba(18, 59, 115, .14);
+      translate: 0 -24px;
+      box-shadow: 0 10px 25px rgba(18, 59, 115, .10);
     }
 
     .prod-img {
@@ -877,7 +892,7 @@
     }
 
     .prod:hover .prod-img img {
-      transform: scale(1.04);
+      /* subtle */
     }
 
     .brand-showcase.birla .prod-img {
@@ -1335,11 +1350,11 @@
     }
 
     section.brands .brand:hover {
-      transform: translateY(-8px) scale(1.01);
+      translate: 0 -24px;
     }
 
     section.brands .brand:hover::before {
-      box-shadow: 0 0 0 1px rgba(212, 167, 44, .26), 0 24px 70px rgba(212, 167, 44, .16);
+      box-shadow: 0 0 0 1px rgba(212, 167, 44, .26), 0 12px 30px rgba(212, 167, 44, .10);
     }
 
     section.brands .brand img {
@@ -1348,7 +1363,7 @@
     }
 
     section.brands .brand:hover img {
-      transform: scale(1.05);
+      /* subtle */
     }
 
     .showcase-page,
@@ -1356,18 +1371,7 @@
       transform-style: preserve-3d;
     }
 
-    .prod {
-      transform: translateY(16px) scale(.985);
-      opacity: 0;
-      transform-style: preserve-3d;
-      will-change: transform, box-shadow;
-      transition:
-        transform 1.1s var(--ease-premium),
-        box-shadow .8s var(--ease-premium),
-        opacity .9s ease;
-      transition-delay: calc(var(--i, 0) * 55ms);
-    }
-
+    /* Consolidated .prod reveal base to the root level */
     .showcase-page.premium-in .prod,
     .showcase-grid.premium-in .prod {
       transform: translateY(0) scale(1);
@@ -1375,13 +1379,11 @@
     }
 
     .prod:hover {
-      transform: translate3d(0, -9px, 0) scale(1.005);
+      translate: 0 -24px;
       box-shadow:
-        0 34px 80px -20px rgba(18, 59, 115, .26),
-        0 12px 30px -10px rgba(212, 167, 44, .26);
-      transition:
-        transform .55s var(--ease-premium),
-        box-shadow .55s var(--ease-premium);
+        0 14px 40px -10px rgba(18, 59, 115, .15),
+        0 8px 15px -5px rgba(212, 167, 44, .15);
+      /* Base transition is maintained */
     }
 
     .prod-img {
@@ -1406,8 +1408,7 @@
       border-radius: inherit;
     }
 
-    .prod.is-swept .prod-img::after,
-    .prod:hover .prod-img::after {
+    .prod.is-swept .prod-img::after {
       transform: translateX(135%) skewX(-20deg);
     }
 
@@ -1468,8 +1469,10 @@
     .loc-box {
       transform: translateY(14px);
       opacity: 0;
+      translate: 0 0;
       transition:
         transform 1.1s var(--ease-premium),
+        translate 0.2s ease,
         opacity .9s ease,
         box-shadow .7s var(--ease-premium);
       transition-delay: calc(var(--i, 0) * 90ms);
@@ -1481,15 +1484,17 @@
     }
 
     .loc-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 30px 80px -25px rgba(18, 59, 115, .22);
+      translate: 0 -24px;
+      box-shadow: 0 10px 30px -10px rgba(18, 59, 115, .12);
     }
 
     .card {
       transform: translateY(14px);
       opacity: 0;
+      translate: 0 0;
       transition:
         transform 1.1s var(--ease-premium),
+        translate 0.2s ease,
         opacity .9s ease,
         box-shadow .7s var(--ease-premium);
       transition-delay: calc(var(--i, 0) * 70ms);
@@ -1501,8 +1506,8 @@
     }
 
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 28px 80px -22px rgba(18, 59, 115, .22);
+      translate: 0 -24px;
+      box-shadow: 0 12px 30px -10px rgba(18, 59, 115, .12);
     }
 
     .section-head h2 {
@@ -1642,9 +1647,8 @@
     }
 
     .prod:active {
-      transform: scale(.975) !important;
       box-shadow: 0 14px 34px rgba(18, 59, 115, .18) !important;
-      transition: transform .14s ease-out, box-shadow .14s ease-out !important;
+      transition: box-shadow .14s ease-out !important;
     }
 
     .brand-showcase-head.is-linked-flash {
@@ -1668,44 +1672,7 @@
       }
     }
 
-    @media (max-width: 850px) {
-
-      .showcase-page.premium-in .prod,
-      .showcase-grid.premium-in .prod {
-        animation: mb-slide-in .85s cubic-bezier(.2, .7, .2, 1) both;
-        animation-delay: calc(var(--i, 0) * 90ms);
-      }
-
-      .showcase-page.premium-in .prod:nth-child(even),
-      .showcase-grid.premium-in .prod:nth-child(even) {
-        animation-name: mb-slide-in-right;
-      }
-    }
-
-    @keyframes mb-slide-in {
-      0% {
-        opacity: 0;
-        transform: translateX(-26px) translateY(10px) scale(.98);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateX(0) translateY(0) scale(1);
-      }
-    }
-
-    @keyframes mb-slide-in-right {
-      0% {
-        opacity: 0;
-        transform: translateX(26px) translateY(10px) scale(.98);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateX(0) translateY(0) scale(1);
-      }
-    }
-
+    /* Removed mb-slide-in to prevent double-animation on mobile .prod */
     @media (max-width: 520px) {
       section.brands.premium-in .brand {
         animation: mb-brand-pop .7s cubic-bezier(.16, 1, .3, 1) both;
@@ -1840,13 +1807,13 @@
       color: var(--navy);
     }
 
-    .loc-box p {
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
+    /* .loc-box p is now styled at the top of the file to match gujarati text styling */
     .loc-box a {
-      color: var(--blue);
+      color: inherit;
+      text-decoration: none;
+    }
+    .loc-box a:hover {
+      text-decoration: underline;
     }
 
     .footer {
@@ -3325,7 +3292,7 @@
             });
             section.querySelectorAll('.prod:not([data-tilt-hooked])').forEach(card => {
               card.setAttribute('data-tilt-hooked', '1');
-              applyTilt(card, 4, 5, 0.16);
+              /* applyTilt removed for .prod */
             });
             const mask = section.querySelector('.showcase-mask[data-swipe-bound]');
             if (!mask) {
@@ -3542,7 +3509,7 @@
         document.querySelectorAll('.showcase-arrow').forEach(b => applyMagnetic(b, 8));
         document.querySelectorAll('.prod').forEach(card => {
           card.setAttribute('data-tilt-hooked', '1');
-          applyTilt(card, 4, 5, 0.16);
+          /* applyTilt removed for .prod */
         });
       }
 
