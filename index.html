@@ -3212,12 +3212,12 @@
       document.querySelectorAll('.reveal').forEach(x => obs.observe(x));
 
       const GITHUB_PRODUCT_DISCOVERY = {
-        OWNER: 'viranimachinery1155',
-        REPOSITORY: 'virani-website-main',
+        OWNER: 'viranimachinery',
+        REPOSITORY: 'viranimachinery.github.io',
         BRANCH: 'main',
         ASSETS_DIR: 'assets',
         IMAGE_EXTENSIONS: ['jpg', 'jpeg', 'png', 'webp', 'avif'],
-        CACHE_KEY: 'virani-discovery-cache-v2',
+        CACHE_KEY: 'virani-discovery-cache-v3',
         STALE_TTL_MS: 5 * 60 * 1000,
         FALLBACK_MAX_MS: 7 * 24 * 60 * 60 * 1000
       };
@@ -3308,13 +3308,20 @@
         return false;
       }
 
-      function buildProdCard(imgPath, brandName) {
+      function buildProdCard(prodObj, brandName) {
+        const imgPath = typeof prodObj === 'string' ? prodObj : (prodObj ? prodObj.image : '');
+        const hasSub = typeof prodObj === 'object' && prodObj !== null && prodObj.hasSubProducts;
+        const subData = hasSub ? prodObj.subProducts : [];
         const card = document.createElement('div');
         card.className = 'prod';
         card.setAttribute('tabindex', '0');
         card.setAttribute('role', 'button');
         card.setAttribute('data-brand', brandName || '');
         card.setAttribute('data-product-path', imgPath || '');
+        if (hasSub) {
+          card.setAttribute('data-has-sub', '1');
+          card.setAttribute('data-sub-json', JSON.stringify(subData));
+        }
         card.setAttribute('aria-label', (brandName || '') + ' ' + titleFromPath(imgPath) + ' — press and hold to enquire, tap to view');
         const imgWrap = document.createElement('div');
         imgWrap.className = 'prod-img';
@@ -3527,6 +3534,7 @@
           }
           const brandMap = {};
           const looseFiles = [];
+          const potentialSubProducts = [];
           assetsEntries.forEach(entry => {
             const rel = entry.path === assetsDir ? '' : entry.path.slice(assetsPrefix.length);
             if (!rel) return;
@@ -3539,7 +3547,6 @@
             }
             const folderName = rel.slice(0, slash);
             const inner = rel.slice(slash + 1);
-            if (inner.indexOf('/') >= 0) return;
             if (!brandMap[folderName]) {
               brandMap[folderName] = {
                 folderName: folderName,
@@ -3549,9 +3556,37 @@
                 products: []
               };
             }
-            if ((entry.type === 'blob' || entry.type === 'file') && isImageFile(inner)) {
-              brandMap[folderName].products.push(entry.path);
+            const innerSlash = inner.indexOf('/');
+            if (innerSlash < 0) {
+              if ((entry.type === 'blob' || entry.type === 'file') && isImageFile(inner)) {
+                brandMap[folderName].products.push({
+                   image: entry.path,
+                   hasSubProducts: false,
+                   subProducts: []
+                });
+              }
+            } else {
+              const subDir = inner.slice(0, innerSlash);
+              const subFile = inner.slice(innerSlash + 1);
+              if (subFile.indexOf('/') < 0 && (entry.type === 'blob' || entry.type === 'file') && isImageFile(subFile)) {
+                potentialSubProducts.push({ folderName, subDir, path: entry.path });
+              }
             }
+          });
+          Object.keys(brandMap).forEach(folderName => {
+             const b = brandMap[folderName];
+             b.products.forEach(p => {
+                const imgName = p.image.split(/[\\/]/).pop();
+                const baseName = imgName.replace(/\.[^.]+$/, '');
+                const subs = potentialSubProducts.filter(sp => sp.folderName === folderName && sp.subDir === baseName);
+                if (subs.length > 0) {
+                   p.hasSubProducts = true;
+                   p.subProducts = subs.map(sp => ({
+                      name: titleFromPath(sp.path),
+                      image: sp.path
+                   }));
+                }
+             });
           });
           const brandFolderKeys = Object.keys(brandMap);
           const brandFolders = APDS_ORDERED_BRANDS.filter(b => brandFolderKeys.indexOf(b) >= 0)
@@ -3790,8 +3825,9 @@
             var products = Array.isArray(b.products) ? b.products.slice() : [];
             if (term) {
               products = products.filter(function (p) {
-                var fn = (titleFromPath(p) || '').toLowerCase();
-                var pLower = (p || '').toLowerCase();
+                var pPath = typeof p === 'string' ? p : (p ? p.image : '');
+                var fn = (titleFromPath(pPath) || '').toLowerCase();
+                var pLower = (pPath || '').toLowerCase();
                 return fn.indexOf(term) >= 0 || pLower.indexOf(term) >= 0 || displayName.indexOf(term) >= 0;
               });
             }
@@ -3977,19 +4013,123 @@
         }
       });
 
+      function openSubProductsView(brandName, parentName, parentImg, subProducts) {
+         let overlay = document.getElementById('subProductsOverlay');
+         if (!overlay) {
+             overlay = document.createElement('div');
+             overlay.id = 'subProductsOverlay';
+             overlay.className = 'sub-products-overlay';
+             const style = document.createElement('style');
+             style.textContent = `
+               .sub-products-overlay {
+                 position: fixed; top:0; left:0; width:100%; height:100%;
+                 background: var(--cream); z-index: 10000; overflow-y: auto;
+                 transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+                 display: flex; flex-direction: column;
+               }
+               .sub-products-overlay.open { transform: translateY(0); }
+               .sp-header {
+                 padding: 20px; background: #fff; box-shadow: 0 4px 12px rgba(18,59,115,0.05);
+                 display: flex; align-items: center; justify-content: space-between; position: sticky; top:0; z-index: 10;
+               }
+               .sp-header h3 { margin: 0; font-size: 22px; color: var(--navy); }
+               .sp-header small { color: var(--muted); font-size: 14px; }
+               .sp-close {
+                 background: rgba(18,59,115,0.06); border: none; width: 40px; height: 40px; border-radius: 50%;
+                 font-size: 24px; cursor: pointer; display: grid; place-items: center; color: var(--navy);
+               }
+               .sp-content { padding: 30px 20px; max-width: 1200px; margin: 0 auto; width: 100%; }
+               .sp-grid {
+                 display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+               }
+               @media (max-width: 520px) {
+                 .sp-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+                 .sp-header { padding: 15px; }
+                 .sp-header h3 { font-size: 18px; }
+                 .sp-content { padding: 20px 15px; }
+               }
+               .sp-card {
+                 background: #fff; border-radius: 18px; padding: 12px; box-shadow: 0 8px 24px rgba(18,59,115,0.06);
+                 text-align: center; position: relative; border: 1px solid rgba(18,59,115,0.04);
+               }
+               .sp-card img { width: 100%; aspect-ratio: 1; object-fit: contain; border-radius: 12px; margin-bottom: 12px; pointer-events: none; }
+               .sp-card h4 { margin: 0; font-size: 15px; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+             `;
+             document.head.appendChild(style);
+             document.body.appendChild(overlay);
+         }
+         
+         let html = `
+           <div class="sp-header">
+             <div>
+               <h3>${escapeHtml(parentName)}</h3>
+               <small>${escapeHtml(brandName)}</small>
+             </div>
+             <button class="sp-close" id="spClose">×</button>
+           </div>
+           <div class="sp-content">
+             <div class="lp-instruction" aria-live="polite" style="margin-bottom: 24px;">
+               <span class="lp-icon" aria-hidden="true">🖐</span>
+               <div>
+                 <div class="lp-text-gu" lang="gu">પૂછપરછ માટે પ્રોડક્ટ પર થોડું દબાવી રાખો</div>
+                 <div class="lp-text-en">Press &amp; hold to enquire</div>
+               </div>
+             </div>
+             <div class="sp-grid">
+         `;
+         
+         subProducts.forEach(sp => {
+            html += `
+              <div class="prod sp-card" tabindex="0" role="button" data-brand="${escapeHtml(brandName)}" data-product-path="${escapeHtml(parentImg)}" data-sub-name="${escapeHtml(sp.name)}">
+                 <img src="${escapeHtml(sp.image)}" alt="${escapeHtml(sp.name)}" loading="lazy">
+                 <h4>${escapeHtml(sp.name)}</h4>
+                 <div class="lp-ring" aria-hidden="true">
+                   <svg viewBox="0 0 24 24"><circle class="bg" cx="12" cy="12" r="10"></circle><circle class="fg" cx="12" cy="12" r="10"></circle></svg>
+                 </div>
+              </div>
+            `;
+         });
+         
+         html += `</div></div>`;
+         overlay.innerHTML = html;
+         
+         overlay.querySelector('#spClose').addEventListener('click', () => {
+             overlay.classList.remove('open');
+             document.body.style.overflow = '';
+         });
+         
+         document.body.style.overflow = 'hidden';
+         void overlay.offsetWidth;
+         overlay.classList.add('open');
+         
+         overlay.querySelectorAll('.sp-card').forEach(c => {
+             c.addEventListener('click', (e) => {
+                 if (c.__lpSuppressClick) return;
+                 const img = c.querySelector('img');
+                 if (img && img.src) openFullscreen(img.src);
+             });
+         });
+      }
+
       function attachQuickViewToCards(root) {
         if (!root) return;
         var cards = root.querySelectorAll('.prod:not([data-qv-bound])');
         cards.forEach(function (card) {
           card.setAttribute('data-qv-bound', '1');
           card.addEventListener('click', function (e) {
+            if (card.classList.contains('sp-card')) return;
             var img = card.querySelector('.prod-img img');
             var imgPath = img ? (img.getAttribute('src') || '') : '';
             var showcase = card.closest('.brand-showcase');
-            var brandName = '';
-            if (showcase) {
+            var brandName = card.getAttribute('data-brand') || '';
+            if (showcase && !brandName) {
               var h3 = showcase.querySelector('.brand-showcase-head h3');
               if (h3) brandName = (h3.textContent || '').trim();
+            }
+            if (card.hasAttribute('data-has-sub')) {
+              var subs = JSON.parse(card.getAttribute('data-sub-json') || '[]');
+              openSubProductsView(brandName, titleFromPath(imgPath), imgPath, subs);
+              return;
             }
             openQuickView(imgPath, brandName);
           });
@@ -4087,11 +4227,25 @@
           var brand = card.getAttribute('data-brand') || '';
           var path = card.getAttribute('data-product-path') || '';
           var productName = path ? titleFromPath(path) : '';
+          
+          if (card.hasAttribute('data-has-sub')) {
+            var subs = JSON.parse(card.getAttribute('data-sub-json') || '[]');
+            openSubProductsView(brand, productName, path, subs);
+            card.__lpSuppressClick = true;
+            setTimeout(function () { card.__lpSuppressClick = false; }, 1800);
+            card.classList.remove('is-pressing');
+            card.classList.add('is-lp-cancel');
+            setTimeout(function () { card.classList.remove('is-lp-cancel'); }, 40);
+            return;
+          }
+
+          var subName = card.getAttribute('data-sub-name') || '';
           var msg =
             'Hello Virani Machinery & Co.,\n' +
             'I am interested in:\n' +
             'Brand: ' + (brand || 'N/A') + '\n' +
-            'Product: ' + (productName || 'N/A') + '\n\n' +
+            'Product: ' + (productName || 'N/A') +
+            (subName ? '\nSub Product: ' + subName : '') + '\n\n' +
             'Please share price and availability.';
           var wa =
             'https://wa.me/' + encodeURIComponent(WHATSAPP_NUMBER) +
