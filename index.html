@@ -114,8 +114,13 @@
       font-weight: 600;
       line-height: 1.7;
       letter-spacing: 0 !important;
-      color: var(--ink);
+      color: #e0e9f5;
       max-width: 620px;
+    }
+
+    .hero-logo p:lang(gu) {
+      color: #142B49;
+      font-weight: 700;
     }
 
     .loc-box p {
@@ -276,14 +281,18 @@
       width: min(1160px, 92%);
       z-index: 50;
       padding: 12px 16px;
-      border: 1px solid #ffffff80;
-      background: #ffffffd9;
-      backdrop-filter: blur(16px);
+      border: 1px solid rgba(18, 59, 115, 0.1);
+      background: #FFFFFF;
       border-radius: 22px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 15px 50px rgba(18, 59, 115, .10);
+      box-shadow: 0 10px 40px rgba(18, 59, 115, 0.15);
+      transition: box-shadow 0.4s ease;
+    }
+
+    nav.nav-scrolled {
+      box-shadow: 0 15px 50px rgba(18, 59, 115, 0.25);
     }
 
     nav img {
@@ -306,9 +315,13 @@
       font-weight: 700;
     }
 
+    nav.nav-scrolled a {
+      color: var(--navy);
+    }
+
     nav .contact {
       background: var(--gold);
-      color: var(--navy);
+      color: var(--navy) !important;
       padding: 11px 16px;
       border-radius: 13px;
       box-shadow: 0 8px 20px rgba(212, 167, 44, .25);
@@ -320,20 +333,20 @@
       display: grid;
       place-items: center;
       overflow: hidden;
-      background: radial-gradient(circle at 75% 35%, #e5efff 0, #F3F6FA 42%, #FFFFFF 100%);
+      background: radial-gradient(circle at 75% 35%, #182e4e 0%, #10233F 42%, #0a172a 100%);
     }
 
     .orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(2px);
-      opacity: .55;
+      filter: blur(80px);
+      opacity: 0.35;
     }
 
     .o1 {
       width: 420px;
       height: 420px;
-      background: #c6dcff;
+      background: #2a5a9c;
       right: -100px;
       top: 10%;
     }
@@ -341,19 +354,73 @@
     .o2 {
       width: 300px;
       height: 300px;
-      background: #f3e1a8;
+      background: #D4A72C;
       left: -100px;
       bottom: -80px;
+      opacity: 0.2;
     }
 
     .grid {
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(29, 95, 167, .07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(29, 95, 167, .07) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
       background-size: 55px 55px;
       mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+
+    /* Simple Fade-In Entrance Animation */
+    @keyframes heroFadeUp {
+      0% { opacity: 0; transform: translateY(12px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    .hero-anim .hero-left-content .eyebrow {
+      opacity: 0;
+      animation: heroFadeUp 0.6s ease-out forwards 0.1s;
+    }
+    
+    .hero-anim .hero-left-content h1 {
+      opacity: 0;
+      animation: heroFadeUp 0.6s ease-out forwards 0.25s;
+    }
+    
+    .hero-anim .hero-left-content p {
+      opacity: 0;
+      animation: heroFadeUp 0.6s ease-out forwards 0.4s;
+    }
+
+    .hero-anim .hero-left-content .hero-buttons {
+      opacity: 0;
+      animation: heroFadeUp 0.6s ease-out forwards 0.55s;
+    }
+
+    @keyframes heroLogoFade {
+      0% { opacity: 0; transform: translateY(12px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    .hero-anim .hero-logo {
+      opacity: 0;
+      animation: heroLogoFade 0.6s ease-out forwards 0.7s, float 5s ease-in-out infinite 1.3s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-anim .hero-left-content .eyebrow,
+      .hero-anim .hero-left-content h1,
+      .hero-anim .hero-left-content p,
+      .hero-anim .hero-left-content .hero-buttons,
+      .hero-anim .hero-logo,
+      nav {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      nav.nav-scrolled {
+        transition: none;
+      }
     }
 
     .hero-inner {
@@ -371,7 +438,7 @@
       font-size: 12px;
       letter-spacing: .24em;
       font-weight: 800;
-      color: var(--blue);
+      color: var(--gold);
       text-transform: uppercase;
     }
 
@@ -381,7 +448,7 @@
       margin: 18px 0;
       font-weight: 900;
       letter-spacing: -.06em;
-      color: var(--navy);
+      color: #ffffff;
     }
 
     .hero h1 span {
@@ -392,7 +459,7 @@
       font-family: 'BalooBhai2', sans-serif;
       font-size: 20px;
       line-height: 1.7;
-      color: var(--muted);
+      color: #b0c4de;
       max-width: 600px;
     }
 
@@ -422,6 +489,17 @@
       border: 1px solid rgba(18, 59, 115, .18);
       color: var(--navy);
       background: rgba(255, 255, 255, .6);
+    }
+
+    .hero-buttons .btn.secondary {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-buttons .btn.secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
 
     .hero-logo {
@@ -1184,80 +1262,7 @@
       --ease-premium: cubic-bezier(.2, .7, .2, 1);
     }
 
-    body.is-loading .hero-inner>*,
-    body.is-loading .hero-logo {
-      opacity: 0;
-    }
 
-    body.is-ready .hero-inner .eyebrow,
-    body.is-ready .hero-inner h1,
-    body.is-ready .hero-inner p,
-    body.is-ready .hero-inner .hero-buttons,
-    body.is-ready .hero-logo {
-      opacity: 0;
-      transform: translateY(26px);
-      animation: h-unveil 1.15s var(--ease-premium) forwards;
-    }
-
-    body.is-ready .hero-inner .eyebrow {
-      animation-delay: .02s;
-    }
-
-    body.is-ready .hero-inner h1 {
-      animation-delay: .10s;
-    }
-
-    body.is-ready .hero-inner h1 .h-line:nth-child(1) {
-      animation-delay: .10s;
-    }
-
-    body.is-ready .hero-inner h1 .h-line:nth-child(2) {
-      animation-delay: .18s;
-    }
-
-    body.is-ready .hero-inner p {
-      animation-delay: .28s;
-    }
-
-    body.is-ready .hero-inner .hero-buttons {
-      animation-delay: .40s;
-    }
-
-    body.is-ready .hero-logo {
-      animation-delay: .54s;
-    }
-
-    .hero-inner h1 {
-      display: grid;
-      gap: 2px;
-    }
-
-    .hero-inner h1 .h-line {
-      display: block;
-      overflow: hidden;
-    }
-
-    .hero-inner h1 .h-line>* {
-      display: inline-block;
-    }
-
-    @keyframes h-unveil {
-      0% {
-        opacity: 0;
-        transform: translateY(28px);
-        filter: blur(10px);
-      }
-
-      45% {
-        filter: blur(0);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
-    }
 
     .btn {
       will-change: transform;
@@ -2587,6 +2592,11 @@
       box-shadow: 0 20px 45px rgba(212, 167, 44, .50);
     }
 
+    .back-to-top:active {
+      transform: translateY(0) scale(0.95);
+      box-shadow: 0 10px 20px rgba(212, 167, 44, .40);
+    }
+
     .loc-actions {
       display: flex;
       flex-wrap: wrap;
@@ -3046,7 +3056,7 @@
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <div class="cursor"></div>
 
-  <nav>
+  <nav id="nav">
     <a href="#top" aria-label="Go to top of page" style="display:inline-flex">
       <img src="assets/virani-official-logo.webp" alt="Virani Machinery & Co logo" fetchpriority="high"
         decoding="async">
@@ -3059,7 +3069,7 @@
     <a class="contact" href="tel:+919426345155">Call Us</a>
   </nav>
 
-  <header class="hero" id="top">
+  <header class="hero hero-anim" id="top">
     <div class="orb o1"></div>
     <div class="orb o2"></div>
     <div class="grid"></div>
@@ -3069,7 +3079,7 @@
     <div class="bp-pipe bp-pipe-b" aria-hidden="true"></div>
 
     <div class="hero-inner">
-      <div class="reveal">
+      <div class="hero-left-content">
         <div class="eyebrow">VIRANI MACHINERY & CO.</div>
         <h1>Built for<br><span>Every</span> Need.</h1>
         <p lang="gu">હાર્ડવેર • પ્લંબિંગ • સેનિટેરી • પેઇન્ટ્સ<br>તમારા બાંધકામ અને ઘરનાં કામ માટે વિશ્વાસપાત્ર
@@ -3080,7 +3090,7 @@
         </div>
       </div>
 
-      <div class="hero-logo reveal">
+      <div class="hero-logo">
         <span class="corner tl"></span>
         <span class="corner tr"></span>
         <span class="corner bl"></span>
@@ -3368,25 +3378,6 @@
       const IS_TOUCH = ('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
       const lerp = (a, b, t) => a + (b - a) * t;
 
-      document.body.classList.add('is-loading');
-
-      const h1 = document.querySelector('.hero-inner h1');
-      if (h1) {
-        try {
-          const raw = h1.innerHTML;
-          const parts = [];
-          const splitByBr = raw.split(/<br\s*\/?>/i);
-          splitByBr.forEach((chunk, ci) => {
-            const trimmed = chunk.trim();
-            if (!trimmed) return;
-            parts.push('<span class="h-line">' + trimmed + '</span>');
-          });
-          if (parts.length > 1) {
-            h1.innerHTML = parts.join('');
-          }
-        } catch (e) {
-        }
-      }
 
       function markStagger(root, selector, baseDelayStep) {
         if (!root) return;
@@ -3730,19 +3721,6 @@
 
       document.querySelectorAll('.showcase-mask').forEach(m => attachSwipe(m));
 
-      function afterBodyReady() {
-        document.body.classList.remove('is-loading');
-        document.body.classList.add('is-ready');
-        setTimeout(() => {
-          document.body.classList.remove('is-loading');
-        }, 1800);
-      }
-
-      if (document.readyState === 'complete') {
-        setTimeout(afterBodyReady, 80);
-      } else {
-        window.addEventListener('load', () => setTimeout(afterBodyReady, 80), { once: true });
-      }
     })();
 
     const obs = new IntersectionObserver(
@@ -4751,6 +4729,11 @@
         if (backToTopBtn) {
           if (y > 420) backToTopBtn.classList.add('show');
           else backToTopBtn.classList.remove('show');
+        }
+        var navEl = document.getElementById('nav');
+        if (navEl) {
+          if (y > 50) navEl.classList.add('nav-scrolled');
+          else navEl.classList.remove('nav-scrolled');
         }
       } catch (e) { }
     }
