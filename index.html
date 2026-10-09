@@ -4660,7 +4660,10 @@
         setFsZoom(currentZoom === 1 ? 2.5 : 1);
       });
 
+      fsImage.addEventListener('dragstart', (e) => e.preventDefault());
+
       fsImageContainer.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return; // Only left click
         if (currentZoom > 1) {
           isDragging = true;
           startX = e.clientX - translateX;
