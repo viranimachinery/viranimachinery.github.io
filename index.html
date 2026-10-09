@@ -620,7 +620,7 @@
       align-items: center;
       justify-content: center;
       padding: 18px;
-      transition: transform .45s cubic-bezier(.2,.7,.2,1), translate 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      transition: transform .45s cubic-bezier(.2, .7, .2, 1), translate 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
       translate: 0 0;
       position: relative;
       overflow: hidden;
@@ -674,7 +674,7 @@
       border: 1px solid rgba(16, 35, 63, .08);
       position: relative;
       min-height: 390px;
-      transition: transform .45s cubic-bezier(.2,.7,.2,1), translate 0.2s ease, box-shadow 0.2s ease;
+      transition: transform .45s cubic-bezier(.2, .7, .2, 1), translate 0.2s ease, box-shadow 0.2s ease;
       translate: 0 0;
     }
 
@@ -850,14 +850,14 @@
       border-radius: 26px;
       overflow: hidden;
       box-shadow: 0 6px 20px rgba(18, 59, 115, .06);
-      
+
       /* Premium Reveal Animation State */
       opacity: 0;
       transform: translateY(14px) scale(.985);
       translate: 0 0;
       transform-style: preserve-3d;
       will-change: transform, opacity, box-shadow;
-      
+
       transition:
         transform 0.8s var(--ease-premium),
         opacity 0.7s ease,
@@ -1806,6 +1806,7 @@
       color: inherit;
       text-decoration: none;
     }
+
     .loc-box a:hover {
       text-decoration: underline;
     }
@@ -2880,39 +2881,47 @@
         opacity .9s ease,
         box-shadow .7s var(--ease-premium);
     }
+
     .location.premium-in .feedback-card {
       transform: translateY(0);
       opacity: 1;
     }
+
     .feedback-card:hover {
       translate: 0 -10px;
       box-shadow: 0 10px 30px -10px rgba(18, 59, 115, .12);
     }
+
     .fb-header {
       margin-bottom: 24px;
     }
+
     .fb-header h3 {
       font-size: 27px;
       margin-top: 0;
       color: var(--navy);
       margin-bottom: 6px;
     }
+
     .fb-header p {
       color: var(--ink);
       margin: 0;
       font-size: clamp(14px, 1.4vw, 16px);
       font-weight: 500;
     }
+
     .fb-form {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
+
     .fb-input-group {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
     }
+
     .fb-input-group input {
       padding: 14px 18px;
       border: 1px solid rgba(18, 59, 115, .15);
@@ -2924,15 +2933,46 @@
       color: var(--navy);
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
+
     .fb-input-group input:focus {
       border-color: var(--gold);
       box-shadow: 0 0 0 3px rgba(212, 167, 44, .15);
     }
+
+    .fb-input-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+    
+    .fb-input-wrapper input {
+      width: 100%;
+    }
+
+    .fb-input-wrapper.error input {
+      border-color: #d32f2f;
+      background-color: #fffaf9;
+    }
+
+    .fb-error-msg {
+      color: #d32f2f;
+      font-size: 13.5px;
+      line-height: 1.4;
+      display: none;
+      font-weight: 500;
+    }
+    
+    .fb-input-wrapper.error .fb-error-msg {
+      display: block;
+    }
+
     .fb-rating-wrap {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
+
     .fb-stars {
       font-size: 36px;
       color: var(--gold);
@@ -2942,29 +2982,59 @@
       gap: 8px;
       line-height: 1;
     }
+
     .fb-stars span {
       transition: transform 0.2s ease;
     }
+
     .fb-stars span:hover {
       transform: scale(1.15);
     }
+
+    .fb-rating-text {
+      min-height: 48px;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(-4px);
+      pointer-events: none;
+    }
+
+    .fb-rating-text.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fb-rating-text strong {
+      display: block;
+      color: var(--navy);
+      font-size: 16px;
+      margin-bottom: 2px;
+    }
+
     .fb-success-msg {
       color: #1a7f37;
       font-weight: 600;
       margin-top: 15px;
       line-height: 1.6;
     }
+
     .fb-form button {
       border: none;
       font-family: inherit;
       cursor: pointer;
       align-self: flex-start;
     }
+
     @media (max-width: 850px) {
       .feedback-card {
         padding: 24px 20px;
         border-radius: 20px;
       }
+
       .fb-header h3 {
         font-size: 21px;
       }
@@ -2978,7 +3048,8 @@
 
   <nav>
     <a href="#top" aria-label="Go to top of page" style="display:inline-flex">
-      <img src="assets/virani-official-logo.webp" alt="Virani Machinery & Co logo" fetchpriority="high" decoding="async">
+      <img src="assets/virani-official-logo.webp" alt="Virani Machinery & Co logo" fetchpriority="high"
+        decoding="async">
     </a>
     <div class="links">
       <a href="#brands">Brands</a>
@@ -3107,16 +3178,25 @@
       <div class="feedback-card reveal">
         <div class="fb-header">
           <h3>Customer Feedback</h3>
-          <p lang="gu">અમારો અનુભવ જણાવો</p>
+          <p lang="gu">તમારો અમૂલ્ય અભિપ્રાય આપો</p>
         </div>
-        <form id="feedbackForm" class="fb-form">
+        <form id="feedbackForm" class="fb-form" novalidate>
           <div class="fb-input-group">
-            <input type="text" id="fbName" name="name" placeholder="નામ" required>
-            <input type="text" id="fbVillage" name="village" placeholder="ગામ / શહેર" required>
-            <input type="tel" id="fbMobile" name="mobile" placeholder="મોબાઇલ નંબર" required pattern="[0-9]{10}" maxlength="10">
+            <div class="fb-input-wrapper" id="wrapName">
+              <input type="text" id="fbName" name="name" placeholder="નામ/Name" required>
+              <div id="fbNameError" class="fb-error-msg" aria-live="polite"></div>
+            </div>
+            <div class="fb-input-wrapper" id="wrapVillage">
+              <input type="text" id="fbVillage" name="village" placeholder="ગામ / શહેર/Village" required>
+              <div id="fbVillageError" class="fb-error-msg" aria-live="polite"></div>
+            </div>
+            <div class="fb-input-wrapper" id="wrapMobile">
+              <input type="tel" id="fbMobile" name="mobile" placeholder="મોબાઇલ નંબર/Mobile No." pattern="[6-9][0-9]{9}" maxlength="10" required>
+              <div id="fbMobileError" class="fb-error-msg" aria-live="polite"></div>
+            </div>
           </div>
-          
-          <div class="fb-rating-wrap">
+
+          <div class="fb-rating-wrap">  
             <div class="fb-stars" id="fbStars">
               <span data-value="1">☆</span>
               <span data-value="2">☆</span>
@@ -3124,9 +3204,11 @@
               <span data-value="4">☆</span>
               <span data-value="5">☆</span>
             </div>
+            <div id="fbRatingText" class="fb-rating-text" aria-live="polite"></div>
+            <div id="fbRatingError" class="fb-error-msg" aria-live="polite" style="margin-top: -4px; margin-bottom: 8px;"></div>
             <input type="hidden" id="fbRating" name="rating" value="0" required>
           </div>
-          
+
           <button type="submit" class="loc-btn primary" id="fbSubmit">Submit Feedback</button>
           <div id="fbSuccess" class="fb-success-msg" style="display:none;">
             તમારા અભિપ્રાય બદલ આભાર!<br>Thank you for your feedback!
@@ -3145,7 +3227,8 @@
         <img src="assets/GUJRATI LOGO.webp" alt="Virani Machinery Gujarati logo" loading="lazy" decoding="async"
           style="margin: 0; width: clamp(130px, 38vw, 180px); height: auto; object-fit: contain; border-radius: 16px;">
       </div>
-      <div style="font-weight: 600; font-size: 15px; color: var(--navy); text-align: center;">© 1968 Virani Machinery & Co. • Dhasa Gam</div>
+      <div style="font-weight: 600; font-size: 15px; color: var(--navy); text-align: center;">© 1968 Virani Machinery &
+        Co. • Dhasa Gam</div>
     </div>
   </footer>
 
@@ -4874,78 +4957,204 @@
           }
         }
       }, 180);
-      // Customer Feedback Form Logic
-      const fbStars = document.querySelectorAll('#fbStars span');
-      const fbRatingInput = document.getElementById('fbRating');
-      const fbForm = document.getElementById('feedbackForm');
-      const fbSubmit = document.getElementById('fbSubmit');
-      const fbSuccess = document.getElementById('fbSuccess');
+    });
 
-      if (fbStars && fbRatingInput && fbForm) {
-        function updateStars(val) {
-          fbStars.forEach(s => {
-            const v = parseInt(s.getAttribute('data-value'), 10);
-            s.innerText = v <= val ? '★' : '☆';
-          });
-        }
+    // Customer Feedback Form Logic
+    const fbStars = document.querySelectorAll('#fbStars span');
+    const fbRatingInput = document.getElementById('fbRating');
+    const fbForm = document.getElementById('feedbackForm');
+    const fbSubmit = document.getElementById('fbSubmit');
+    const fbSuccess = document.getElementById('fbSuccess');
+    const fbRatingText = document.getElementById('fbRatingText');
+    
+    const fbRatingLabels = {
+      1: { title: "નબળી સેવા", desc: "અમારી સેવા સુધારવાની જરૂર છે." },
+      2: { title: "સંતોષકારક નથી", desc: "અમે વધુ સારી સેવા આપવાનો પ્રયત્ન કરીશું." },
+      3: { title: "સારી સેવા", desc: "તમારો અનુભવ સામાન્ય રીતે સારો રહ્યો." },
+      4: { title: "ખૂબ સારી સેવા", desc: "તમને અમારી સેવા ગમી, એ જાણીને આનંદ થયો." },
+      5: { title: "ઉત્તમ સેવા", desc: "તમારા વિશ્વાસ અને સહકાર બદલ આભાર!" }
+    };
 
-        fbStars.forEach(star => {
-          star.addEventListener('click', function() {
-            const val = parseInt(this.getAttribute('data-value'), 10);
-            fbRatingInput.value = val;
-            updateStars(val);
-          });
-        });
-
-        fbForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const name = document.getElementById('fbName').value.trim();
-          const village = document.getElementById('fbVillage').value.trim();
-          const mobile = document.getElementById('fbMobile').value.trim();
-          const rating = fbRatingInput.value;
-
-          if (!name || !village || !mobile || rating === '0') {
-            alert('કૃપા કરીને બધી વિગતો ભરો અને રેટિંગ પસંદ કરો.');
-            return;
-          }
-
-          if (!/^[0-9]{10}$/.test(mobile)) {
-            alert('કૃપા કરીને સાચો 10-આંકડાનો મોબાઇલ નંબર દાખલ કરો.');
-            return;
-          }
-
-          fbSubmit.disabled = true;
-          fbSubmit.innerText = 'Submitting...';
-
-          const formData = new URLSearchParams();
-          formData.append("name", name);
-          formData.append("village", village);
-          formData.append("mobile", mobile);
-          formData.append("rating", rating);
-
-          fetch('https://script.google.com/macros/s/AKfycbzZ1RwNZpzDUXmnrJHE3PSUgzOwKUtQr6nKq55JzfOj_0xS-rOjm8cT8p0ZEVBjdqKDOA/exec', {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors'
-          }).then(() => {
-            fbSuccess.style.display = 'block';
-            fbForm.reset();
-            updateStars(0);
-            fbRatingInput.value = '0';
-            fbSubmit.disabled = false;
-            fbSubmit.innerText = 'Submit Feedback';
-            setTimeout(() => {
-              fbSuccess.style.display = 'none';
-            }, 5000);
-          }).catch(err => {
-            console.error(err);
-            fbSubmit.disabled = false;
-            fbSubmit.innerText = 'Submit Feedback';
-            alert('Error submitting feedback. Please try again.');
-          });
+    if (fbStars && fbRatingInput && fbForm) {
+      function updateStars(val) {
+        fbStars.forEach(s => {
+          const v = parseInt(s.getAttribute('data-value'), 10);
+          s.innerText = v <= val ? '★' : '☆';
         });
       }
-    });
+
+      function updateRatingText(val) {
+        if (!fbRatingText) return;
+        if (val >= 1 && val <= 5) {
+          fbRatingText.innerHTML = '<strong lang="gu">' + fbRatingLabels[val].title + '</strong><span lang="gu">' + fbRatingLabels[val].desc + '</span>';
+          fbRatingText.classList.add('show');
+        } else {
+          fbRatingText.classList.remove('show');
+        }
+      }
+
+      fbStars.forEach(star => {
+        star.addEventListener('click', function () {
+          const val = parseInt(this.getAttribute('data-value'), 10);
+          const currentVal = parseInt(fbRatingInput.value, 10);
+          if (val === currentVal) {
+            fbRatingInput.value = '0';
+            updateStars(0);
+            updateRatingText(0);
+          } else {
+            fbRatingInput.value = val;
+            updateStars(val);
+            updateRatingText(val);
+            const err = document.getElementById('fbRatingError');
+            if (err) err.style.display = 'none';
+          }
+        });
+        
+        star.addEventListener('mouseenter', function () {
+          const val = parseInt(this.getAttribute('data-value'), 10);
+          updateStars(val);
+          updateRatingText(val);
+        });
+      });
+      
+      const fbStarsContainer = document.getElementById('fbStars');
+      if (fbStarsContainer) {
+        fbStarsContainer.addEventListener('mouseleave', function () {
+          const currentVal = parseInt(fbRatingInput.value, 10) || 0;
+          updateStars(currentVal);
+          updateRatingText(currentVal);
+        });
+      }
+
+      function clearError(errorId, wrapId) {
+        const errEl = document.getElementById(errorId);
+        const wrapEl = document.getElementById(wrapId);
+        if (errEl) errEl.innerText = '';
+        if (wrapEl) wrapEl.classList.remove('error');
+      }
+
+      function showError(errorId, wrapId, msg) {
+        const errEl = document.getElementById(errorId);
+        const wrapEl = document.getElementById(wrapId);
+        if (errEl) errEl.innerText = msg;
+        if (wrapEl) wrapEl.classList.add('error');
+      }
+
+      const nameEl = document.getElementById('fbName');
+      const villageEl = document.getElementById('fbVillage');
+      const mobileEl = document.getElementById('fbMobile');
+
+      if (nameEl) {
+        nameEl.addEventListener('input', function() {
+          this.value = this.value.replace(/[0-9]/g, '');
+          if (this.value.trim() !== '') clearError('fbNameError', 'wrapName');
+        });
+      }
+      if (villageEl) {
+        villageEl.addEventListener('input', function() {
+          if (this.value.trim() !== '') clearError('fbVillageError', 'wrapVillage');
+        });
+      }
+      if (mobileEl) {
+        mobileEl.addEventListener('input', function() {
+          this.value = this.value.replace(/[^0-9]/g, '');
+          if (/^[6-9][0-9]{9}$/.test(this.value)) {
+            clearError('fbMobileError', 'wrapMobile');
+          }
+        });
+      }
+
+      fbForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (fbSubmit.disabled) return;
+        
+        let isValid = true;
+        let firstInvalid = null;
+
+        const nameVal = nameEl.value.trim();
+        if (nameVal === '') {
+          showError('fbNameError', 'wrapName', 'કૃપા કરીને તમારું નામ લખો.');
+          isValid = false;
+          if (!firstInvalid) firstInvalid = nameEl;
+        } else {
+          clearError('fbNameError', 'wrapName');
+        }
+
+        const villageVal = villageEl.value.trim();
+        if (villageVal === '') {
+          showError('fbVillageError', 'wrapVillage', 'કૃપા કરીને ગામ અથવા શહેરનું નામ લખો.');
+          isValid = false;
+          if (!firstInvalid) firstInvalid = villageEl;
+        } else {
+          clearError('fbVillageError', 'wrapVillage');
+        }
+
+        const mobileVal = mobileEl.value.trim();
+        if (mobileVal === '') {
+          showError('fbMobileError', 'wrapMobile', 'કૃપા કરીને મોબાઇલ નંબર દાખલ કરો.');
+          isValid = false;
+          if (!firstInvalid) firstInvalid = mobileEl;
+        } else if (!/^[6-9][0-9]{9}$/.test(mobileVal)) {
+          showError('fbMobileError', 'wrapMobile', 'કૃપા કરીને સાચો 10 અંકનો મોબાઇલ નંબર દાખલ કરો.');
+          isValid = false;
+          if (!firstInvalid) firstInvalid = mobileEl;
+        } else {
+          clearError('fbMobileError', 'wrapMobile');
+        }
+
+        const rating = fbRatingInput.value;
+        const ratingErr = document.getElementById('fbRatingError');
+        if (rating === '0') {
+          if (ratingErr) {
+            ratingErr.innerText = 'કૃપા કરીને સ્ટાર રેટિંગ પસંદ કરો.';
+            ratingErr.style.display = 'block';
+          }
+          isValid = false;
+        } else {
+          if (ratingErr) ratingErr.style.display = 'none';
+        }
+
+        if (!isValid) {
+          if (firstInvalid) {
+            firstInvalid.focus();
+          } else if (rating === '0' && document.getElementById('fbStars')) {
+            document.getElementById('fbStars').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          return;
+        }
+
+        fbSubmit.disabled = true;
+        fbSubmit.innerText = 'Submitting...';
+
+        const formData = new URLSearchParams();
+        formData.append("name", nameVal);
+        formData.append("village", villageVal);
+        formData.append("mobile", mobileVal);
+        formData.append("rating", rating);
+
+        fetch('https://script.google.com/macros/s/AKfycbzZ1RwNZpzDUXmnrJHE3PSUgzOwKUtQr6nKq55JzfOj_0xS-rOjm8cT8p0ZEVBjdqKDOA/exec', {
+          method: 'POST',
+          body: formData,
+          mode: 'no-cors'
+        }).then(() => {
+          fbSuccess.style.display = 'block';
+          fbForm.reset();
+          updateStars(0);
+          updateRatingText(0);
+          fbRatingInput.value = '0';
+          fbSubmit.disabled = false;
+          fbSubmit.innerText = 'Submit Feedback';
+          setTimeout(() => {
+            fbSuccess.style.display = 'none';
+          }, 5000);
+        }).catch(err => {
+          console.error(err);
+          fbSubmit.disabled = false;
+          fbSubmit.innerText = 'Submit Feedback';
+          alert('Error submitting feedback. Please try again.');
+        });
+      });
+    }
   </script>
 </body>
 
