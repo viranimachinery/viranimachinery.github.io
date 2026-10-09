@@ -1,10 +1,10 @@
 {
-  "scanned": 81,
+  "scanned": 156,
   "converted": 76,
   "resized": 15,
-  "skipped": 5,
-  "totalOriginalSize": 30897139,
-  "totalOptimizedSize": 3515854,
+  "skipped": 80,
+  "totalOriginalSize": 33277971,
+  "totalOptimizedSize": 5714770,
   "details": [
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Appu Xtra\\product1.jpg",
@@ -18,6 +18,13 @@
       "reduction": "64.80%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Appu Xtra\\product1.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 35822,
+      "optimizedSize": 35822
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Appu Xtra\\product2.jpg",
       "action": "converted_and_resized",
       "originalSize": 101774,
@@ -27,6 +34,13 @@
       "newWidth": 1200,
       "newHeight": 627,
       "reduction": "64.80%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Appu Xtra\\product2.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 35822,
+      "optimizedSize": 35822
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Appu Xtra\\product3.png",
@@ -40,6 +54,13 @@
       "reduction": "89.02%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Appu Xtra\\product3.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 44300,
+      "optimizedSize": 44300
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\appu-tank-detail.jpg",
       "action": "converted_and_resized",
       "originalSize": 92804,
@@ -49,6 +70,13 @@
       "newWidth": 800,
       "newHeight": 1200,
       "reduction": "72.79%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\appu-tank-detail.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 25256,
+      "optimizedSize": 25256
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\appu-tank-single.png",
@@ -62,6 +90,13 @@
       "reduction": "86.47%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\appu-tank-single.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 13454,
+      "optimizedSize": 13454
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\appu-tanks.jpg",
       "action": "converted_and_resized",
       "originalSize": 101774,
@@ -73,6 +108,13 @@
       "reduction": "64.80%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\appu-tanks.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 35822,
+      "optimizedSize": 35822
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\appuextra.png",
       "action": "converted_and_resized",
       "originalSize": 11318,
@@ -82,6 +124,13 @@
       "newWidth": 182,
       "newHeight": 142,
       "reduction": "83.78%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\appuextra.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 1836,
+      "optimizedSize": 1836
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Birla Opus\\product1.webp",
@@ -122,6 +171,13 @@
       "reduction": "42.41%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\cement\\product1.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 102752,
+      "optimizedSize": 102752
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\cement\\product2.jpg",
       "action": "converted_and_resized",
       "originalSize": 168782,
@@ -131,6 +187,13 @@
       "newWidth": 515,
       "newHeight": 1024,
       "reduction": "42.99%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\cement\\product2.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 96226,
+      "optimizedSize": 96226
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\cement.png",
@@ -144,6 +207,13 @@
       "reduction": "90.67%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\cement.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 4446,
+      "optimizedSize": 4446
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\cement1.jpg",
       "action": "converted_and_resized",
       "originalSize": 3191597,
@@ -153,6 +223,13 @@
       "newWidth": 1200,
       "newHeight": 800,
       "reduction": "94.60%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\cement1.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 172442,
+      "optimizedSize": 172442
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Ganga Pipes\\product1.jpg",
@@ -166,6 +243,13 @@
       "reduction": "90.06%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Ganga Pipes\\product1.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 6584,
+      "optimizedSize": 6584
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Ganga Pipes\\product2.jpg",
       "action": "converted_and_resized",
       "originalSize": 43291,
@@ -175,6 +259,13 @@
       "newWidth": 360,
       "newHeight": 270,
       "reduction": "91.68%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Ganga Pipes\\product2.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 3602,
+      "optimizedSize": 3602
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\ganga.png",
@@ -188,6 +279,13 @@
       "reduction": "74.06%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\ganga.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 2926,
+      "optimizedSize": 2926
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\GUJRATI LOGO.png",
       "action": "converted_and_resized",
       "originalSize": 184646,
@@ -197,6 +295,13 @@
       "newWidth": 500,
       "newHeight": 500,
       "reduction": "75.45%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\GUJRATI LOGO.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 45330,
+      "optimizedSize": 45330
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\image.png",
@@ -210,6 +315,13 @@
       "reduction": "92.73%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\image.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 4690,
+      "optimizedSize": 4690
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product1.jpeg",
       "action": "converted_and_resized",
       "originalSize": 89343,
@@ -219,6 +331,13 @@
       "newWidth": 271,
       "newHeight": 309,
       "reduction": "88.72%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product1.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 10078,
+      "optimizedSize": 10078
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product2.jpeg",
@@ -232,6 +351,13 @@
       "reduction": "58.88%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product2.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 7700,
+      "optimizedSize": 7700
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product3\\Screenshot 2026-10-08 162804.png",
       "action": "converted_and_resized",
       "originalSize": 264068,
@@ -241,6 +367,13 @@
       "newWidth": 746,
       "newHeight": 510,
       "reduction": "93.50%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product3\\Screenshot 2026-10-08 162804.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 17164,
+      "optimizedSize": 17164
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product3\\Screenshot 2026-10-08 162811.png",
@@ -254,6 +387,13 @@
       "reduction": "94.33%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product3\\Screenshot 2026-10-08 162811.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 8358,
+      "optimizedSize": 8358
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product3\\Screenshot 2026-10-08 162818.png",
       "action": "converted_and_resized",
       "originalSize": 281520,
@@ -263,6 +403,13 @@
       "newWidth": 1200,
       "newHeight": 236,
       "reduction": "94.97%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product3\\Screenshot 2026-10-08 162818.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 14162,
+      "optimizedSize": 14162
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product3.jpeg",
@@ -276,6 +423,13 @@
       "reduction": "89.04%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product3.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 27000,
+      "optimizedSize": 27000
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product4.jpeg",
       "action": "converted_and_resized",
       "originalSize": 175774,
@@ -285,6 +439,13 @@
       "newWidth": 491,
       "newHeight": 294,
       "reduction": "92.86%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast\\product4.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 12548,
+      "optimizedSize": 12548
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast Plumbing Solutions Poster.png",
@@ -298,6 +459,13 @@
       "reduction": "93.24%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Kanan Plast Plumbing Solutions Poster.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 141432,
+      "optimizedSize": 141432
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\kanan-green-valve.jpeg",
       "action": "converted_and_resized",
       "originalSize": 89343,
@@ -307,6 +475,13 @@
       "newWidth": 271,
       "newHeight": 309,
       "reduction": "88.72%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\kanan-green-valve.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 10078,
+      "optimizedSize": 10078
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\kanan-logo.jpeg",
@@ -320,6 +495,13 @@
       "reduction": "57.45%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\kanan-logo.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 26888,
+      "optimizedSize": 26888
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\kanan-products.jpeg",
       "action": "converted_and_resized",
       "originalSize": 246316,
@@ -329,6 +511,13 @@
       "newWidth": 580,
       "newHeight": 394,
       "reduction": "89.04%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\kanan-products.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 27000,
+      "optimizedSize": 27000
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\kanan-red-valve.jpeg",
@@ -342,6 +531,13 @@
       "reduction": "92.86%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\kanan-red-valve.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 12548,
+      "optimizedSize": 12548
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product1\\o_1j224dbmf1nhg2ltsujr4v19p2p.jpg",
       "action": "converted_and_resized",
       "originalSize": 625410,
@@ -351,6 +547,13 @@
       "newWidth": 800,
       "newHeight": 800,
       "reduction": "98.47%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product1\\o_1j224dbmf1nhg2ltsujr4v19p2p.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 9586,
+      "optimizedSize": 9586
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product1\\o_1j224dbmf1tp314b51vfb1rkcig2r.jpg",
@@ -364,6 +567,13 @@
       "reduction": "98.47%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product1\\o_1j224dbmf1tp314b51vfb1rkcig2r.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 9592,
+      "optimizedSize": 9592
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product1\\o_1j224dbmfgna1c76qsjuvrac8s.jpg",
       "action": "converted_and_resized",
       "originalSize": 632465,
@@ -373,6 +583,13 @@
       "newWidth": 800,
       "newHeight": 800,
       "reduction": "98.20%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product1\\o_1j224dbmfgna1c76qsjuvrac8s.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 11372,
+      "optimizedSize": 11372
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product1.jpg",
@@ -386,6 +603,13 @@
       "reduction": "98.26%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product1.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 11014,
+      "optimizedSize": 11014
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product2\\o_1j22237oj1t3rtuon4l1j4d1aiiq.jpg",
       "action": "converted_and_resized",
       "originalSize": 626697,
@@ -395,6 +619,13 @@
       "newWidth": 800,
       "newHeight": 800,
       "reduction": "98.52%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product2\\o_1j22237oj1t3rtuon4l1j4d1aiiq.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 9252,
+      "optimizedSize": 9252
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product2\\o_1j22237ojbbm163210e58spjpmk.jpg",
@@ -408,6 +639,13 @@
       "reduction": "98.52%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product2\\o_1j22237ojbbm163210e58spjpmk.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 9282,
+      "optimizedSize": 9282
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product2\\o_1j22237ojdj2b3o166mavtic2m.jpg",
       "action": "converted_and_resized",
       "originalSize": 626598,
@@ -417,6 +655,13 @@
       "newWidth": 800,
       "newHeight": 800,
       "reduction": "98.52%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product2\\o_1j22237ojdj2b3o166mavtic2m.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 9260,
+      "optimizedSize": 9260
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product2.jpg",
@@ -430,6 +675,13 @@
       "reduction": "98.52%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product2.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 9282,
+      "optimizedSize": 9282
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product3\\o_1j224v9nr1mnlouj4806dluut10.jpg",
       "action": "converted_and_resized",
       "originalSize": 634258,
@@ -439,6 +691,13 @@
       "newWidth": 800,
       "newHeight": 800,
       "reduction": "97.99%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product3\\o_1j224v9nr1mnlouj4806dluut10.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 12760,
+      "optimizedSize": 12760
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product3\\o_1j224v9ns1hlf1rj0qhuofl4p17.jpg",
@@ -452,6 +711,13 @@
       "reduction": "97.87%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product3\\o_1j224v9ns1hlf1rj0qhuofl4p17.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 13624,
+      "optimizedSize": 13624
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product3\\o_1j224v9nsrfl1d6onkbb7218a713.jpg",
       "action": "converted_and_resized",
       "originalSize": 632431,
@@ -461,6 +727,13 @@
       "newWidth": 800,
       "newHeight": 800,
       "reduction": "98.02%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product3\\o_1j224v9nsrfl1d6onkbb7218a713.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 12502,
+      "optimizedSize": 12502
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product3.jpg",
@@ -474,6 +747,13 @@
       "reduction": "97.94%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product3.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 13118,
+      "optimizedSize": 13118
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product4.jpg",
       "action": "converted_and_resized",
       "originalSize": 628917,
@@ -483,6 +763,13 @@
       "newWidth": 800,
       "newHeight": 800,
       "reduction": "98.49%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero\\product4.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 9470,
+      "optimizedSize": 9470
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero Premium Sanitaryware Showcase.png",
@@ -496,6 +783,13 @@
       "reduction": "95.28%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Mottero Premium Sanitaryware Showcase.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 92510,
+      "optimizedSize": 92510
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\mottero-basin.jpg",
       "action": "converted_and_resized",
       "originalSize": 628132,
@@ -505,6 +799,13 @@
       "newWidth": 800,
       "newHeight": 800,
       "reduction": "98.36%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\mottero-basin.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 10330,
+      "optimizedSize": 10330
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\mottero-logo.png",
@@ -518,6 +819,13 @@
       "reduction": "68.08%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\mottero-logo.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 41836,
+      "optimizedSize": 41836
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\mottero-toilet.jpg",
       "action": "converted_and_resized",
       "originalSize": 628917,
@@ -527,6 +835,13 @@
       "newWidth": 800,
       "newHeight": 800,
       "reduction": "98.49%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\mottero-toilet.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 9470,
+      "optimizedSize": 9470
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\VIRANI Machinery Gujarati Product Showcase.png",
@@ -540,6 +855,13 @@
       "reduction": "87.82%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\VIRANI Machinery Gujarati Product Showcase.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 289712,
+      "optimizedSize": 289712
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\virani-official-logo.png",
       "action": "converted_and_resized",
       "originalSize": 116908,
@@ -549,6 +871,13 @@
       "newWidth": 991,
       "newHeight": 252,
       "reduction": "78.95%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\virani-official-logo.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 24608,
+      "optimizedSize": 24608
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product1\\product15.png",
@@ -562,6 +891,13 @@
       "reduction": "90.54%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product1\\product15.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 20430,
+      "optimizedSize": 20430
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product1\\product16.png",
       "action": "converted_and_resized",
       "originalSize": 194077,
@@ -571,6 +907,13 @@
       "newWidth": 992,
       "newHeight": 392,
       "reduction": "90.55%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product1\\product16.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 18346,
+      "optimizedSize": 18346
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product1\\product17.png",
@@ -584,6 +927,13 @@
       "reduction": "90.37%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product1\\product17.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 19122,
+      "optimizedSize": 19122
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product1\\product18.png",
       "action": "converted_and_resized",
       "originalSize": 174077,
@@ -593,6 +943,13 @@
       "newWidth": 990,
       "newHeight": 387,
       "reduction": "90.75%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product1\\product18.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 16104,
+      "optimizedSize": 16104
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product1.jpg",
@@ -606,6 +963,13 @@
       "reduction": "87.69%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product1.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 14462,
+      "optimizedSize": 14462
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product2\\product13.png",
       "action": "converted_and_resized",
       "originalSize": 226480,
@@ -615,6 +979,13 @@
       "newWidth": 1006,
       "newHeight": 415,
       "reduction": "90.16%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product2\\product13.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 22290,
+      "optimizedSize": 22290
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product2\\product14.png",
@@ -628,6 +999,13 @@
       "reduction": "89.90%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product2\\product14.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 14468,
+      "optimizedSize": 14468
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product2.jpg",
       "action": "converted_and_resized",
       "originalSize": 99785,
@@ -637,6 +1015,13 @@
       "newWidth": 535,
       "newHeight": 560,
       "reduction": "85.61%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product2.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 14364,
+      "optimizedSize": 14364
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product3.jpg",
@@ -650,6 +1035,13 @@
       "reduction": "84.84%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product3.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 15014,
+      "optimizedSize": 15014
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product4\\product22.png",
       "action": "converted_and_resized",
       "originalSize": 32806,
@@ -659,6 +1051,13 @@
       "newWidth": 512,
       "newHeight": 198,
       "reduction": "78.29%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product4\\product22.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 7122,
+      "optimizedSize": 7122
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product4.jpg",
@@ -672,6 +1071,13 @@
       "reduction": "83.75%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product4.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 21958,
+      "optimizedSize": 21958
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product5\\product19.png",
       "action": "converted_and_resized",
       "originalSize": 205633,
@@ -681,6 +1087,13 @@
       "newWidth": 992,
       "newHeight": 396,
       "reduction": "89.44%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product5\\product19.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 21706,
+      "optimizedSize": 21706
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product5\\product20.png",
@@ -694,6 +1107,13 @@
       "reduction": "88.38%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product5\\product20.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 25416,
+      "optimizedSize": 25416
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product5\\product21.png",
       "action": "converted_and_resized",
       "originalSize": 39051,
@@ -705,15 +1125,22 @@
       "reduction": "88.11%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product5\\product21.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 4642,
+      "optimizedSize": 4642
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product5.jpg",
       "action": "converted_and_resized",
-      "originalSize": 53090,
-      "optimizedSize": 11070,
-      "originalWidth": 560,
-      "originalHeight": 535,
-      "newWidth": 560,
-      "newHeight": 535,
-      "reduction": "79.15%"
+      "originalSize": 234708,
+      "optimizedSize": 10772,
+      "originalWidth": 535,
+      "originalHeight": 560,
+      "newWidth": 535,
+      "newHeight": 560,
+      "reduction": "95.41%"
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product6\\product23.png",
@@ -727,6 +1154,13 @@
       "reduction": "89.97%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product6\\product23.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 21116,
+      "optimizedSize": 21116
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product6\\product24.png",
       "action": "converted_and_resized",
       "originalSize": 204450,
@@ -736,6 +1170,13 @@
       "newWidth": 995,
       "newHeight": 405,
       "reduction": "89.27%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product6\\product24.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 21930,
+      "optimizedSize": 21930
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product6\\product25.png",
@@ -749,6 +1190,13 @@
       "reduction": "86.27%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product6\\product25.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 22196,
+      "optimizedSize": 22196
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product6\\product26.png",
       "action": "converted_and_resized",
       "originalSize": 79908,
@@ -758,6 +1206,13 @@
       "newWidth": 521,
       "newHeight": 207,
       "reduction": "87.92%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product6\\product26.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 9650,
+      "optimizedSize": 9650
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product6.jpg",
@@ -771,6 +1226,13 @@
       "reduction": "86.18%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product6.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 17330,
+      "optimizedSize": 17330
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product7\\product10.png",
       "action": "converted_and_resized",
       "originalSize": 177982,
@@ -780,6 +1242,13 @@
       "newWidth": 1010,
       "newHeight": 396,
       "reduction": "85.99%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product7\\product10.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 24938,
+      "optimizedSize": 24938
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product7\\product11.png",
@@ -793,6 +1262,13 @@
       "reduction": "88.69%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product7\\product11.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 14100,
+      "optimizedSize": 14100
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product7\\product12.png",
       "action": "converted_and_resized",
       "originalSize": 73650,
@@ -802,6 +1278,13 @@
       "newWidth": 857,
       "newHeight": 216,
       "reduction": "84.17%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product7\\product12.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 11656,
+      "optimizedSize": 11656
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product7\\product8.png",
@@ -815,6 +1298,13 @@
       "reduction": "86.28%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product7\\product8.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 19100,
+      "optimizedSize": 19100
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product7\\product9.png",
       "action": "converted_and_resized",
       "originalSize": 150827,
@@ -824,6 +1314,13 @@
       "newWidth": 998,
       "newHeight": 405,
       "reduction": "86.28%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product7\\product9.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 20696,
+      "optimizedSize": 20696
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product7.jpg",
@@ -837,6 +1334,13 @@
       "reduction": "86.23%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo\\product7.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 12050,
+      "optimizedSize": 12050
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo Pipes & Fittings Product Showcase.png",
       "action": "converted_and_resized",
       "originalSize": 2056470,
@@ -846,6 +1350,13 @@
       "newWidth": 1200,
       "newHeight": 800,
       "reduction": "92.44%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\Waterflo Pipes & Fittings Product Showcase.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 155488,
+      "optimizedSize": 155488
     },
     {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\waterflo-logo.png",
@@ -859,6 +1370,13 @@
       "reduction": "54.05%"
     },
     {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\waterflo-logo.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 4322,
+      "optimizedSize": 4322
+    },
+    {
       "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\waterflo-portfolio.png",
       "action": "converted_and_resized",
       "originalSize": 1040866,
@@ -868,6 +1386,13 @@
       "newWidth": 1008,
       "newHeight": 1055,
       "reduction": "94.78%"
+    },
+    {
+      "file": "D:\\viraniwebsiterelatedimages\\virani_website_final\\assets\\waterflo-portfolio.webp",
+      "action": "skipped",
+      "reason": "Already optimized WebP",
+      "originalSize": 54352,
+      "optimizedSize": 54352
     }
   ]
 }
