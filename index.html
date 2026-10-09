@@ -372,20 +372,27 @@
 
     /* Simple Fade-In Entrance Animation */
     @keyframes heroFadeUp {
-      0% { opacity: 0; transform: translateY(12px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    
+
     .hero-anim .hero-left-content .eyebrow {
       opacity: 0;
       animation: heroFadeUp 0.6s ease-out forwards 0.1s;
     }
-    
+
     .hero-anim .hero-left-content h1 {
       opacity: 0;
-      animation: heroFadeUp 0.6s ease-out forwards 0.25s;
+      animation: heroFadeUp 0.6s ease-out forwards 0.20s;
     }
-    
+
     .hero-anim .hero-left-content p {
       opacity: 0;
       animation: heroFadeUp 0.6s ease-out forwards 0.4s;
@@ -397,16 +404,24 @@
     }
 
     @keyframes heroLogoFade {
-      0% { opacity: 0; transform: translateY(12px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    
+
     .hero-anim .hero-logo {
       opacity: 0;
       animation: heroLogoFade 0.6s ease-out forwards 0.7s, float 5s ease-in-out infinite 1.3s;
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       .hero-anim .hero-left-content .eyebrow,
       .hero-anim .hero-left-content h1,
       .hero-anim .hero-left-content p,
@@ -418,6 +433,7 @@
         transform: none !important;
         transition: none !important;
       }
+
       nav.nav-scrolled {
         transition: none;
       }
@@ -2955,7 +2971,7 @@
       gap: 6px;
       width: 100%;
     }
-    
+
     .fb-input-wrapper input {
       width: 100%;
     }
@@ -2972,7 +2988,7 @@
       display: none;
       font-weight: 500;
     }
-    
+
     .fb-input-wrapper.error .fb-error-msg {
       display: block;
     }
@@ -3201,12 +3217,13 @@
               <div id="fbVillageError" class="fb-error-msg" aria-live="polite"></div>
             </div>
             <div class="fb-input-wrapper" id="wrapMobile">
-              <input type="tel" id="fbMobile" name="mobile" placeholder="મોબાઇલ નંબર/Mobile No." pattern="[6-9][0-9]{9}" maxlength="10" required>
+              <input type="tel" id="fbMobile" name="mobile" placeholder="મોબાઇલ નંબર/Mobile No." pattern="[6-9][0-9]{9}"
+                maxlength="10" required>
               <div id="fbMobileError" class="fb-error-msg" aria-live="polite"></div>
             </div>
           </div>
 
-          <div class="fb-rating-wrap">  
+          <div class="fb-rating-wrap">
             <div class="fb-stars" id="fbStars">
               <span data-value="1">☆</span>
               <span data-value="2">☆</span>
@@ -3215,7 +3232,8 @@
               <span data-value="5">☆</span>
             </div>
             <div id="fbRatingText" class="fb-rating-text" aria-live="polite"></div>
-            <div id="fbRatingError" class="fb-error-msg" aria-live="polite" style="margin-top: -4px; margin-bottom: 8px;"></div>
+            <div id="fbRatingError" class="fb-error-msg" aria-live="polite"
+              style="margin-top: -4px; margin-bottom: 8px;"></div>
             <input type="hidden" id="fbRating" name="rating" value="0" required>
           </div>
 
@@ -4949,7 +4967,7 @@
     const fbSubmit = document.getElementById('fbSubmit');
     const fbSuccess = document.getElementById('fbSuccess');
     const fbRatingText = document.getElementById('fbRatingText');
-    
+
     const fbRatingLabels = {
       1: { title: "નબળી સેવા", desc: "અમારી સેવા સુધારવાની જરૂર છે." },
       2: { title: "સંતોષકારક નથી", desc: "અમે વધુ સારી સેવા આપવાનો પ્રયત્ન કરીશું." },
@@ -4992,14 +5010,14 @@
             if (err) err.style.display = 'none';
           }
         });
-        
+
         star.addEventListener('mouseenter', function () {
           const val = parseInt(this.getAttribute('data-value'), 10);
           updateStars(val);
           updateRatingText(val);
         });
       });
-      
+
       const fbStarsContainer = document.getElementById('fbStars');
       if (fbStarsContainer) {
         fbStarsContainer.addEventListener('mouseleave', function () {
@@ -5028,18 +5046,18 @@
       const mobileEl = document.getElementById('fbMobile');
 
       if (nameEl) {
-        nameEl.addEventListener('input', function() {
+        nameEl.addEventListener('input', function () {
           this.value = this.value.replace(/[0-9]/g, '');
           if (this.value.trim() !== '') clearError('fbNameError', 'wrapName');
         });
       }
       if (villageEl) {
-        villageEl.addEventListener('input', function() {
+        villageEl.addEventListener('input', function () {
           if (this.value.trim() !== '') clearError('fbVillageError', 'wrapVillage');
         });
       }
       if (mobileEl) {
-        mobileEl.addEventListener('input', function() {
+        mobileEl.addEventListener('input', function () {
           this.value = this.value.replace(/[^0-9]/g, '');
           if (/^[6-9][0-9]{9}$/.test(this.value)) {
             clearError('fbMobileError', 'wrapMobile');
@@ -5050,7 +5068,7 @@
       fbForm.addEventListener('submit', function (e) {
         e.preventDefault();
         if (fbSubmit.disabled) return;
-        
+
         let isValid = true;
         let firstInvalid = null;
 
