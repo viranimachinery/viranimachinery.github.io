@@ -2544,12 +2544,75 @@
       display: flex;
       opacity: 1;
     }
+    
+    .fs-zoom-controls {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 20002;
+      background: rgba(20, 43, 73, 0.85);
+      padding: 8px 16px;
+      border-radius: 30px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    .fs-zoom-btn {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 400;
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 20px;
+      transition: background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+    }
+
+    .fs-zoom-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+    
+    .fs-zoom-btn#fsZoomReset {
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 4px 12px;
+    }
+
+    .fs-img-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      touch-action: none;
+    }
 
     .fs-viewer img {
       max-width: 100%;
       max-height: 94vh;
       object-fit: contain;
       border-radius: 18px;
+      transform-origin: center center;
+      cursor: grab;
+      will-change: transform;
+    }
+    
+    .fs-viewer img:active {
+      cursor: grabbing;
+    }
+    
+    .fs-viewer img.animate-zoom {
+      transition: transform 0.2s ease-out;
     }
 
     .fs-close {
@@ -3282,8 +3345,15 @@
   </div>
 
   <div class="fs-viewer" id="fsViewer" role="dialog" aria-modal="true" aria-label="Fullscreen image viewer">
+    <div class="fs-zoom-controls">
+      <button type="button" class="fs-zoom-btn" id="fsZoomOut" aria-label="Zoom Out">−</button>
+      <button type="button" class="fs-zoom-btn" id="fsZoomReset" aria-label="Reset Zoom">Reset</button>
+      <button type="button" class="fs-zoom-btn" id="fsZoomIn" aria-label="Zoom In">+</button>
+    </div>
     <button type="button" class="fs-close" id="fsClose" aria-label="Close fullscreen">×</button>
-    <img id="fsImage" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="">
+    <div class="fs-img-container" id="fsImageContainer">
+      <img id="fsImage" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="">
+    </div>
   </div>
 
   <script type="application/ld+json">
@@ -4532,10 +4602,134 @@
       try { closeFullscreen(); } catch (e) { }
     }
 
+    let currentZoom = 1;
+    const MIN_ZOOM = 1;
+    const MAX_ZOOM = 5;
+    let isDragging = false;
+    let startX = 0, startY = 0;
+    let translateX = 0, translateY = 0;
+    let initialDistance = null;
+    let initialZoom = 1;
+
+    const fsImageContainer = document.getElementById('fsImageContainer');
+    const fsZoomIn = document.getElementById('fsZoomIn');
+    const fsZoomOut = document.getElementById('fsZoomOut');
+    const fsZoomReset = document.getElementById('fsZoomReset');
+
+    function updateFsTransform(animate = false) {
+      if (animate) {
+        fsImage.classList.add('animate-zoom');
+        setTimeout(() => fsImage.classList.remove('animate-zoom'), 200);
+      }
+      
+      const contRect = fsImageContainer.getBoundingClientRect();
+      const scaledWidth = fsImage.offsetWidth * currentZoom;
+      const scaledHeight = fsImage.offsetHeight * currentZoom;
+      
+      const maxTx = Math.max(0, (scaledWidth - contRect.width) / 2);
+      const maxTy = Math.max(0, (scaledHeight - contRect.height) / 2);
+
+      translateX = Math.max(-maxTx, Math.min(maxTx, translateX));
+      translateY = Math.max(-maxTy, Math.min(maxTy, translateY));
+
+      fsImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+    }
+
+    function setFsZoom(newZoom, animate = true) {
+      currentZoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newZoom));
+      if (currentZoom === 1) {
+        translateX = 0;
+        translateY = 0;
+      }
+      updateFsTransform(animate);
+    }
+
+    if (fsZoomIn) fsZoomIn.addEventListener('click', () => setFsZoom(currentZoom + 0.5));
+    if (fsZoomOut) fsZoomOut.addEventListener('click', () => setFsZoom(currentZoom - 0.5));
+    if (fsZoomReset) fsZoomReset.addEventListener('click', () => setFsZoom(1));
+
+    if (fsImageContainer) {
+      fsImageContainer.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const zoomStep = 0.2;
+        const direction = e.deltaY > 0 ? -1 : 1;
+        setFsZoom(currentZoom + (direction * zoomStep), false);
+      }, { passive: false });
+
+      fsImage.addEventListener('dblclick', () => {
+        setFsZoom(currentZoom === 1 ? 2.5 : 1);
+      });
+
+      fsImageContainer.addEventListener('mousedown', (e) => {
+        if (currentZoom > 1) {
+          isDragging = true;
+          startX = e.clientX - translateX;
+          startY = e.clientY - translateY;
+          fsImageContainer.style.cursor = 'grabbing';
+        }
+      });
+      
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        translateX = e.clientX - startX;
+        translateY = e.clientY - startY;
+        updateFsTransform(false);
+      });
+      
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+        if(fsImageContainer) fsImageContainer.style.cursor = '';
+      });
+
+      function getDistance(touches) {
+        return Math.hypot(
+          touches[0].clientX - touches[1].clientX,
+          touches[0].clientY - touches[1].clientY
+        );
+      }
+      
+      let lastTouchX = 0;
+      let lastTouchY = 0;
+
+      fsImageContainer.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 2) {
+          initialDistance = getDistance(e.touches);
+          initialZoom = currentZoom;
+        } else if (e.touches.length === 1 && currentZoom > 1) {
+          isDragging = true;
+          lastTouchX = e.touches[0].clientX;
+          lastTouchY = e.touches[0].clientY;
+        }
+      }, { passive: false });
+      
+      fsImageContainer.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        if (e.touches.length === 2) {
+          const currentDistance = getDistance(e.touches);
+          const scaleChange = currentDistance / initialDistance;
+          setFsZoom(initialZoom * scaleChange, false);
+        } else if (e.touches.length === 1 && isDragging) {
+          const deltaX = e.touches[0].clientX - lastTouchX;
+          const deltaY = e.touches[0].clientY - lastTouchY;
+          translateX += deltaX;
+          translateY += deltaY;
+          lastTouchX = e.touches[0].clientX;
+          lastTouchY = e.touches[0].clientY;
+          updateFsTransform(false);
+        }
+      }, { passive: false });
+
+      fsImageContainer.addEventListener('touchend', (e) => {
+        if (e.touches.length < 2) initialDistance = null;
+        if (e.touches.length === 0) isDragging = false;
+      });
+    }
+
     function openFullscreen(src) {
       if (!fsViewer || !src) return;
       fsImage.src = src;
       fsImage.alt = 'Fullscreen view';
+      setFsZoom(1, false);
       fsViewer.classList.add('open');
     }
 
@@ -4563,7 +4757,7 @@
     if (fsClose) fsClose.addEventListener('click', closeFullscreen);
     if (fsViewer) {
       fsViewer.addEventListener('click', function (e) {
-        if (e.target === fsViewer) closeFullscreen();
+        if (e.target === fsViewer || e.target === fsImageContainer) closeFullscreen();
       });
     }
 
