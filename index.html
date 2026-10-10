@@ -58,7 +58,6 @@
     img {
       display: block;
       max-width: 100%;
-      border-radius: inherit;
     }
 
     html {
@@ -376,6 +375,7 @@
         opacity: 0;
         transform: translateX(calc(-50% - 100vw));
       }
+
       100% {
         opacity: 1;
         transform: translateX(-50%);
@@ -387,6 +387,7 @@
         opacity: 0;
         transform: translateX(-100vw);
       }
+
       100% {
         opacity: 1;
         transform: translateX(0);
@@ -398,6 +399,7 @@
         opacity: 0;
         transform: translateX(100vw);
       }
+
       100% {
         opacity: 1;
         transform: translateX(0);
@@ -420,6 +422,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       .hero-anim .hero-left-content,
       .hero-anim .hero-logo {
         animation: none !important;
@@ -427,10 +430,12 @@
         transform: none !important;
         transition: none !important;
       }
+
       nav {
         animation: none !important;
         opacity: 1 !important;
       }
+
       nav.nav-scrolled {
         transition: none;
       }
@@ -600,7 +605,6 @@
       position: relative;
       z-index: 2;
       filter: drop-shadow(0 4px 10px rgba(18, 59, 115, .12));
-      border-radius: 30px;
     }
 
     .stamp {
@@ -1917,7 +1921,6 @@
         max-width: 520px;
         margin: auto;
         padding: 30px 26px;
-        border-radius: 36px;
       }
 
       section {
@@ -2541,7 +2544,7 @@
       display: flex;
       opacity: 1;
     }
-    
+
     .fs-zoom-controls {
       position: absolute;
       bottom: 40px;
@@ -2555,7 +2558,7 @@
       border-radius: 30px;
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
 
     .fs-zoom-btn {
@@ -2577,7 +2580,7 @@
     .fs-zoom-btn:hover {
       background: rgba(255, 255, 255, 0.25);
     }
-    
+
     .fs-zoom-btn#fsZoomReset {
       font-size: 1rem;
       font-weight: 500;
@@ -2603,11 +2606,11 @@
       cursor: grab;
       will-change: transform;
     }
-    
+
     .fs-viewer img:active {
       cursor: grabbing;
     }
-    
+
     .fs-viewer img.animate-zoom {
       transition: transform 0.2s ease-out;
     }
@@ -4618,11 +4621,11 @@
         fsImage.classList.add('animate-zoom');
         setTimeout(() => fsImage.classList.remove('animate-zoom'), 200);
       }
-      
+
       const contRect = fsImageContainer.getBoundingClientRect();
       const scaledWidth = fsImage.offsetWidth * currentZoom;
       const scaledHeight = fsImage.offsetHeight * currentZoom;
-      
+
       const maxTx = Math.max(0, (scaledWidth - contRect.width) / 2);
       const maxTy = Math.max(0, (scaledHeight - contRect.height) / 2);
 
@@ -4668,17 +4671,17 @@
           fsImageContainer.style.cursor = 'grabbing';
         }
       });
-      
+
       window.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
         translateX = e.clientX - startX;
         translateY = e.clientY - startY;
         updateFsTransform(false);
       });
-      
+
       window.addEventListener('mouseup', () => {
         isDragging = false;
-        if(fsImageContainer) fsImageContainer.style.cursor = '';
+        if (fsImageContainer) fsImageContainer.style.cursor = '';
       });
 
       function getDistance(touches) {
@@ -4687,7 +4690,7 @@
           touches[0].clientY - touches[1].clientY
         );
       }
-      
+
       let lastTouchX = 0;
       let lastTouchY = 0;
 
@@ -4701,7 +4704,7 @@
           lastTouchY = e.touches[0].clientY;
         }
       }, { passive: false });
-      
+
       fsImageContainer.addEventListener('touchmove', (e) => {
         e.preventDefault();
         if (e.touches.length === 2) {
