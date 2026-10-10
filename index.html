@@ -957,18 +957,32 @@
       aspect-ratio: 4/3;
       background: #F3F6FA;
       overflow: hidden;
-      display: grid;
-      place-items: center;
-      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
       border-radius: 20px;
+      position: relative;
     }
 
     .prod-img img {
-      width: 100%;
-      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
       object-fit: contain;
-      transition: .8s;
-      border-radius: 18px;
+      object-position: center;
+      transition: transform .8s;
+      border-radius: 16px;
+      display: block;
+      margin: auto;
+    }
+
+    /* Dedicated spacious ratio for tall vertical products (Water Tanks & Cement) */
+    #brand-cement .prod-img,
+    #brand-appu-xtra .prod-img {
+      aspect-ratio: 1 / 1;
+      padding: 14px;
     }
 
 
@@ -2089,12 +2103,28 @@
       }
 
       .prod-img {
-        padding: 6px;
-        aspect-ratio: 3/3;
+        padding: 8px;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .prod-img img {
-        border-radius: 14px;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        border-radius: 12px;
+        margin: auto;
+      }
+
+      #brand-cement .prod-img,
+      #brand-appu-xtra .prod-img {
+        aspect-ratio: 1 / 1;
+        padding: 10px;
       }
 
       .brand-showcase-head {
@@ -2398,20 +2428,27 @@
 
     .qv-image-wrap {
       background: #F3F6FA;
-      padding: 18px;
+      padding: 20px;
       position: relative;
       cursor: zoom-in;
-      min-height: 280px;
-      display: grid;
-      place-items: center;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
     .qv-image-wrap img {
       max-width: 100%;
-      max-height: 420px;
+      max-height: 440px;
+      width: auto;
+      height: auto;
       object-fit: contain;
-      border-radius: 22px;
+      object-position: center;
+      border-radius: 20px;
       box-shadow: 0 20px 50px rgba(18, 59, 115, .14);
+      display: block;
+      margin: auto;
     }
 
     .qv-zoom-hint {
@@ -2694,12 +2731,20 @@
       }
 
       .qv-image-wrap {
-        min-height: 220px;
+        min-height: 240px;
         padding: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .qv-image-wrap img {
-        max-height: 280px;
+        max-height: 320px;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
       }
 
       .qv-close {
@@ -3786,13 +3831,629 @@
     );
     document.querySelectorAll('.reveal').forEach(x => obs.observe(x));
 
+    const LOCAL_CATALOGUE = [
+  {
+    "folderName": "Waterflo",
+    "displayName": "Waterflo",
+    "directory": "assets/Waterflo",
+    "logoPath": "assets/waterflo-logo.webp",
+    "products": [
+      {
+        "image": "assets/Waterflo/Strongfit CPVC Piping System.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "CPVC 90 Degree Elbow and Tee",
+            "image": "assets/Waterflo/Strongfit CPVC Piping System/CPVC 90 Degree Elbow and Tee.webp"
+          },
+          {
+            "name": "CPVC Brass Threaded Fittings",
+            "image": "assets/Waterflo/Strongfit CPVC Piping System/CPVC Brass Threaded Fittings.webp"
+          },
+          {
+            "name": "CPVC SDR 11 and 13.5 Pipes",
+            "image": "assets/Waterflo/Strongfit CPVC Piping System/CPVC SDR 11 and 13.5 Pipes.webp"
+          },
+          {
+            "name": "CPVC Union and Ball Valve",
+            "image": "assets/Waterflo/Strongfit CPVC Piping System/CPVC Union and Ball Valve.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Waterflo/Surefit uPVC Plumbing System.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "uPVC Plain and Brass Insert Fittings",
+            "image": "assets/Waterflo/Surefit uPVC Plumbing System/uPVC Plain and Brass Insert Fittings.webp"
+          },
+          {
+            "name": "uPVC Schedule 40 and 80 Pipes",
+            "image": "assets/Waterflo/Surefit uPVC Plumbing System/uPVC Schedule 40 and 80 Pipes.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Waterflo/Clickfit uPVC Push-Fit SWR Drainage.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "Clickfit Push Fit Ring Pipes and Fittings",
+            "image": "assets/Waterflo/Clickfit uPVC Push-Fit SWR Drainage/Clickfit Push-Fit Ring Pipes and Fittings.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Waterflo/Selfit uPVC Solvent-Fit SWR Drainage.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      },
+      {
+        "image": "assets/Waterflo/AgriMaster Agriculture Pressure Pipes.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "Agri Service Saddle with SS Fasteners",
+            "image": "assets/Waterflo/AgriMaster Agriculture Pressure Pipes/Agri Service Saddle with SS Fasteners.webp"
+          },
+          {
+            "name": "Agri Tail Piece and Flange Adaptor",
+            "image": "assets/Waterflo/AgriMaster Agriculture Pressure Pipes/Agri Tail Piece and Flange Adaptor.webp"
+          },
+          {
+            "name": "AgriMaster Agriculture Pressure Pipes",
+            "image": "assets/Waterflo/AgriMaster Agriculture Pressure Pipes/AgriMaster Agriculture Pressure Pipes.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Waterflo/Boreline uPVC Submersible Column Pipes.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "Boreline Heavy Column Pipes",
+            "image": "assets/Waterflo/Boreline uPVC Submersible Column Pipes/Boreline Heavy Column Pipes.webp"
+          },
+          {
+            "name": "Boreline Standard Column Pipes",
+            "image": "assets/Waterflo/Boreline uPVC Submersible Column Pipes/Boreline Standard Column Pipes.webp"
+          },
+          {
+            "name": "Rubber Pump Guard Ring",
+            "image": "assets/Waterflo/Boreline uPVC Submersible Column Pipes/Rubber Pump Guard Ring.webp"
+          },
+          {
+            "name": "Stainless Steel Pump Adaptor Set",
+            "image": "assets/Waterflo/Boreline uPVC Submersible Column Pipes/Stainless Steel Pump Adaptor Set.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Waterflo/HDPE Coils and Industrial Pipes.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "HDPE Compression 90 Degree Elbow",
+            "image": "assets/Waterflo/HDPE Coils and Industrial Pipes/HDPE Compression 90 Degree Elbow.webp"
+          },
+          {
+            "name": "HDPE Compression Equal Tee",
+            "image": "assets/Waterflo/HDPE Coils and Industrial Pipes/HDPE Compression Equal Tee.webp"
+          },
+          {
+            "name": "HDPE Compression Male and Female Adaptors",
+            "image": "assets/Waterflo/HDPE Coils and Industrial Pipes/HDPE Compression Male and Female Adaptors.webp"
+          },
+          {
+            "name": "HDPE Continuous Pipe Coils",
+            "image": "assets/Waterflo/HDPE Coils and Industrial Pipes/HDPE Continuous Pipe Coils.webp"
+          },
+          {
+            "name": "HDPE PP Compression Coupler",
+            "image": "assets/Waterflo/HDPE Coils and Industrial Pipes/HDPE PP Compression Coupler.webp"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "folderName": "Kanan Plast",
+    "displayName": "Kanan Plast",
+    "directory": "assets/Kanan Plast",
+    "logoPath": "assets/kanan-logo.webp",
+    "products": [
+      {
+        "image": "assets/Kanan Plast/PP Flange End Ball Valves.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "One Piece PP Flange End Valve",
+            "image": "assets/Kanan Plast/PP Flange End Ball Valves/One Piece PP Flange End Valve.webp"
+          },
+          {
+            "name": "Three Piece PP Flange End Valve",
+            "image": "assets/Kanan Plast/PP Flange End Ball Valves/Three Piece PP Flange End Valve.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Kanan Plast/PP Solid Ball Valves.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "Long Handle PP Ball Valve",
+            "image": "assets/Kanan Plast/PP Solid Ball Valves/Long Handle PP Ball Valve.webp"
+          },
+          {
+            "name": "MS Handle PP Ball Valve",
+            "image": "assets/Kanan Plast/PP Solid Ball Valves/MS Handle PP Ball Valve.webp"
+          },
+          {
+            "name": "Short Handle PP Ball Valve",
+            "image": "assets/Kanan Plast/PP Solid Ball Valves/Short Handle PP Ball Valve.webp"
+          },
+          {
+            "name": "Solid PP Ball Valve",
+            "image": "assets/Kanan Plast/PP Solid Ball Valves/Solid PP Ball Valve.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Kanan Plast/Single Piece Top Entry Ball Valves.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      },
+      {
+        "image": "assets/Kanan Plast/uPVC and PVC Commercial Ball Valves.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      },
+      {
+        "image": "assets/Kanan Plast/Fertilizer Injectors and Flush Valves.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "Continuous Air Release Valve",
+            "image": "assets/Kanan Plast/Fertilizer Injectors and Flush Valves/Continuous Air Release Valve.webp"
+          },
+          {
+            "name": "PP Flush Purge Valve",
+            "image": "assets/Kanan Plast/Fertilizer Injectors and Flush Valves/PP Flush Purge Valve.webp"
+          },
+          {
+            "name": "Venturi Fertilizer Injector",
+            "image": "assets/Kanan Plast/Fertilizer Injectors and Flush Valves/Venturi Fertilizer Injector.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Kanan Plast/Service Saddles Branch Tapping.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      }
+    ]
+  },
+  {
+    "folderName": "Ganga Pipes",
+    "displayName": "Ganga Pipes",
+    "directory": "assets/Ganga Pipes",
+    "logoPath": "assets/ganga.webp",
+    "products": [
+      {
+        "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "CPVC 45 Degree Elbow",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC 45 Degree Elbow.webp"
+          },
+          {
+            "name": "CPVC 90 Degree Elbow",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC 90 Degree Elbow.webp"
+          },
+          {
+            "name": "CPVC Ball Valve",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Ball Valve.webp"
+          },
+          {
+            "name": "CPVC Coupler",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Coupler.webp"
+          },
+          {
+            "name": "CPVC Cross Tee",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Cross Tee.webp"
+          },
+          {
+            "name": "CPVC End Cap",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC End Cap.webp"
+          },
+          {
+            "name": "CPVC Equal Tee",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Equal Tee.webp"
+          },
+          {
+            "name": "CPVC Fast Setting Solvent Cement",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Fast Setting Solvent Cement.webp"
+          },
+          {
+            "name": "CPVC FTA Plastic",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC FTA Plastic.webp"
+          },
+          {
+            "name": "CPVC MTA Plastic",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC MTA Plastic.webp"
+          },
+          {
+            "name": "CPVC Pipe 3 Meter",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Pipe 3 Meter.webp"
+          },
+          {
+            "name": "CPVC Pipe 5 Meter",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Pipe 5 Meter.webp"
+          },
+          {
+            "name": "CPVC Reducer Bushing",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Reducer Bushing.webp"
+          },
+          {
+            "name": "CPVC Reducer Coupler",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Reducer Coupler.webp"
+          },
+          {
+            "name": "CPVC Reducer Elbow",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Reducer Elbow.webp"
+          },
+          {
+            "name": "CPVC Reducer Tee",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Reducer Tee.webp"
+          },
+          {
+            "name": "CPVC Tank Adaptor Socket",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Tank Adaptor Socket.webp"
+          },
+          {
+            "name": "CPVC Tank Adaptor Threaded",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Tank Adaptor Threaded.webp"
+          },
+          {
+            "name": "CPVC Union",
+            "image": "assets/Ganga Pipes/Ganga CPVC Hot and Cold Water Pipes/CPVC Union.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Ganga Pipes/Ganga CPVC Brass Insert Fittings.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "CPVC Brass Insert Elbow",
+            "image": "assets/Ganga Pipes/Ganga CPVC Brass Insert Fittings/CPVC Brass Insert Elbow.webp"
+          },
+          {
+            "name": "CPVC Brass Insert FTA",
+            "image": "assets/Ganga Pipes/Ganga CPVC Brass Insert Fittings/CPVC Brass Insert FTA.webp"
+          },
+          {
+            "name": "CPVC Brass Insert MTA",
+            "image": "assets/Ganga Pipes/Ganga CPVC Brass Insert Fittings/CPVC Brass Insert MTA.webp"
+          },
+          {
+            "name": "CPVC Brass Insert Tee",
+            "image": "assets/Ganga Pipes/Ganga CPVC Brass Insert Fittings/CPVC Brass Insert Tee.webp"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "folderName": "Birla Opus",
+    "displayName": "Birla Opus",
+    "directory": "assets/Birla Opus",
+    "logoPath": "assets/birla_opus_2_595513922e.webp",
+    "products": [
+      {
+        "image": "assets/Birla Opus/One Pure Elegance Luxury Emulsion.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      },
+      {
+        "image": "assets/Birla Opus/Calista Neo Star Premium Emulsion.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      },
+      {
+        "image": "assets/Birla Opus/Style Color Smart Architectural Paint.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      },
+      {
+        "image": "assets/Birla Opus/Alldry Professional Waterproofing.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      },
+      {
+        "image": "assets/Birla Opus/Allwood Fine Timber Finishes.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      },
+      {
+        "image": "assets/Birla Opus/Birla Opus Primers and Wall Putties.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      }
+    ]
+  },
+  {
+    "folderName": "Mottero",
+    "displayName": "Mottero",
+    "directory": "assets/Mottero",
+    "logoPath": "assets/mottero-logo.webp",
+    "products": [
+      {
+        "image": "assets/Mottero/One Piece Closets.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "Afro 5112 Syphonic Closet",
+            "image": "assets/Mottero/One Piece Closets/Afro 5112 Syphonic Closet.webp"
+          },
+          {
+            "name": "Gama 5115 Syphonic Closet",
+            "image": "assets/Mottero/One Piece Closets/Gama 5115 Syphonic Closet.webp"
+          },
+          {
+            "name": "Greta 5111 Syphonic Closet",
+            "image": "assets/Mottero/One Piece Closets/Greta 5111 Syphonic Closet.webp"
+          },
+          {
+            "name": "Hexa 5106 Syphonic Closet",
+            "image": "assets/Mottero/One Piece Closets/Hexa 5106 Syphonic Closet.webp"
+          },
+          {
+            "name": "Lino 5110 Syphonic Closet",
+            "image": "assets/Mottero/One Piece Closets/Lino 5110 Syphonic Closet.webp"
+          },
+          {
+            "name": "Livon 5104 Syphonic Closet",
+            "image": "assets/Mottero/One Piece Closets/Livon 5104 Syphonic Closet.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Mottero/Wall Hung Closets.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "Aarko 6107 Wall Hung",
+            "image": "assets/Mottero/Wall Hung Closets/Aarko 6107 Wall Hung.webp"
+          },
+          {
+            "name": "Aura 6109 Wall Hung",
+            "image": "assets/Mottero/Wall Hung Closets/Aura 6109 Wall Hung.webp"
+          },
+          {
+            "name": "Cosmo 6106 Wall Hung",
+            "image": "assets/Mottero/Wall Hung Closets/Cosmo 6106 Wall Hung.webp"
+          },
+          {
+            "name": "Croma 6108 Wall Hung",
+            "image": "assets/Mottero/Wall Hung Closets/Croma 6108 Wall Hung.webp"
+          },
+          {
+            "name": "Delta 6103 Wall Hung",
+            "image": "assets/Mottero/Wall Hung Closets/Delta 6103 Wall Hung.webp"
+          },
+          {
+            "name": "Icon 6110 Wall Hung",
+            "image": "assets/Mottero/Wall Hung Closets/Icon 6110 Wall Hung.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Mottero/Table Top Art Basins.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "Arrow 1123 Table Top",
+            "image": "assets/Mottero/Table Top Art Basins/Arrow 1123 Table Top.webp"
+          },
+          {
+            "name": "Avio 1106 Table Top",
+            "image": "assets/Mottero/Table Top Art Basins/Avio 1106 Table Top.webp"
+          },
+          {
+            "name": "Candy 1107 Table Top",
+            "image": "assets/Mottero/Table Top Art Basins/Candy 1107 Table Top.webp"
+          },
+          {
+            "name": "Decor 1114 Table Top",
+            "image": "assets/Mottero/Table Top Art Basins/Decor 1114 Table Top.webp"
+          },
+          {
+            "name": "Diamond 1112 Table Top",
+            "image": "assets/Mottero/Table Top Art Basins/Diamond 1112 Table Top.webp"
+          },
+          {
+            "name": "Feather 1120 Table Top",
+            "image": "assets/Mottero/Table Top Art Basins/Feather 1120 Table Top.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Mottero/One Piece Floor Basins.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "Bambu 3101 Floor Basin",
+            "image": "assets/Mottero/One Piece Floor Basins/Bambu 3101 Floor Basin.webp"
+          },
+          {
+            "name": "Cruz 3104 Floor Basin",
+            "image": "assets/Mottero/One Piece Floor Basins/Cruz 3104 Floor Basin.webp"
+          },
+          {
+            "name": "Kosto 3107 Floor Basin",
+            "image": "assets/Mottero/One Piece Floor Basins/Kosto 3107 Floor Basin.webp"
+          },
+          {
+            "name": "Neo 3105 Floor Basin",
+            "image": "assets/Mottero/One Piece Floor Basins/Neo 3105 Floor Basin.webp"
+          },
+          {
+            "name": "Orbit 3102 Floor Basin",
+            "image": "assets/Mottero/One Piece Floor Basins/Orbit 3102 Floor Basin.webp"
+          },
+          {
+            "name": "Selvo 3103 Floor Basin",
+            "image": "assets/Mottero/One Piece Floor Basins/Selvo 3103 Floor Basin.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Mottero/Pastel One Piece Closets.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "Mantra Armani Grey",
+            "image": "assets/Mottero/Pastel One Piece Closets/Mantra Armani Grey.webp"
+          },
+          {
+            "name": "Mantra Emporio Grey",
+            "image": "assets/Mottero/Pastel One Piece Closets/Mantra Emporio Grey.webp"
+          },
+          {
+            "name": "Mantra Lush Brown",
+            "image": "assets/Mottero/Pastel One Piece Closets/Mantra Lush Brown.webp"
+          },
+          {
+            "name": "Mantra Luxe Blue",
+            "image": "assets/Mottero/Pastel One Piece Closets/Mantra Luxe Blue.webp"
+          },
+          {
+            "name": "Mantra Peacock Green",
+            "image": "assets/Mottero/Pastel One Piece Closets/Mantra Peacock Green.webp"
+          },
+          {
+            "name": "Mantra Saint Beige",
+            "image": "assets/Mottero/Pastel One Piece Closets/Mantra Saint Beige.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Mottero/Pastel Table Top Basins.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "Mega Armani Grey",
+            "image": "assets/Mottero/Pastel Table Top Basins/Mega Armani Grey.webp"
+          },
+          {
+            "name": "Mega Emporio Grey",
+            "image": "assets/Mottero/Pastel Table Top Basins/Mega Emporio Grey.webp"
+          },
+          {
+            "name": "Mega Lush Brown",
+            "image": "assets/Mottero/Pastel Table Top Basins/Mega Lush Brown.webp"
+          },
+          {
+            "name": "Mega Luxe Blue",
+            "image": "assets/Mottero/Pastel Table Top Basins/Mega Luxe Blue.webp"
+          },
+          {
+            "name": "Mega Peacock Green",
+            "image": "assets/Mottero/Pastel Table Top Basins/Mega Peacock Green.webp"
+          },
+          {
+            "name": "Mega Saint Beige",
+            "image": "assets/Mottero/Pastel Table Top Basins/Mega Saint Beige.webp"
+          }
+        ]
+      },
+      {
+        "image": "assets/Mottero/Commercial Urinals & Squatting Pans.webp",
+        "hasSubProducts": true,
+        "subProducts": [
+          {
+            "name": "Flat Back Urinal 4118",
+            "image": "assets/Mottero/Commercial Urinals & Squatting Pans/Flat Back Urinal 4118.webp"
+          },
+          {
+            "name": "Ladies Squatting Pan 4113",
+            "image": "assets/Mottero/Commercial Urinals & Squatting Pans/Ladies Squatting Pan 4113.webp"
+          },
+          {
+            "name": "Large Urinal 4112",
+            "image": "assets/Mottero/Commercial Urinals & Squatting Pans/Large Urinal 4112.webp"
+          },
+          {
+            "name": "Opera 4101 Sensor Urinal",
+            "image": "assets/Mottero/Commercial Urinals & Squatting Pans/Opera 4101 Sensor Urinal.webp"
+          },
+          {
+            "name": "Orissa Squatting Pan",
+            "image": "assets/Mottero/Commercial Urinals & Squatting Pans/Orissa Squatting Pan.webp"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "folderName": "Appu Xtra",
+    "displayName": "Appu Xtra",
+    "directory": "assets/Appu Xtra",
+    "logoPath": "assets/appuextra.webp",
+    "products": [
+      {
+        "image": "assets/Appu Xtra/Appuxtra 3 Layer UV White Water Tank.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      },
+      {
+        "image": "assets/Appu Xtra/Ruf and Tuf Appu Black Extra Heavy Tank.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      },
+      {
+        "image": "assets/Appu Xtra/Special Appuxtra Chemical Heavy Duty Tank.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      },
+      {
+        "image": "assets/Appu Xtra/Appuxtra Black 2 Layer Domestic Water Tank.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      }
+    ]
+  },
+  {
+    "folderName": "Cement",
+    "displayName": "Cement",
+    "directory": "assets/cement",
+    "logoPath": "assets/cement.webp",
+    "products": [
+      {
+        "name": "Ambuja Cement",
+        "image": "assets/cement/product1.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      },
+      {
+        "name": "UltraTech Cement",
+        "image": "assets/cement/product2.webp",
+        "hasSubProducts": false,
+        "subProducts": []
+      }
+    ]
+  }
+];
     const GITHUB_PRODUCT_DISCOVERY = {
       OWNER: 'viranimachinery',
       REPOSITORY: 'viranimachinery.github.io',
       BRANCH: 'main',
       ASSETS_DIR: 'assets',
       IMAGE_EXTENSIONS: ['jpg', 'jpeg', 'png', 'webp', 'avif'],
-      CACHE_KEY: 'virani-discovery-cache-v5',
+      CACHE_KEY: 'virani-discovery-cache-v8',
       STALE_TTL_MS: 5 * 60 * 1000,
       FALLBACK_MAX_MS: 7 * 24 * 60 * 60 * 1000
     };
@@ -3807,10 +4468,13 @@
     }
 
     function titleFromPath(path) {
-      const file = (path || '').split(/[\\/]/).pop() || '';
+      const norm = (path || '').replace(/\\/g, '/');
+      if (norm.includes('cement/product1') || (norm.endsWith('product1.webp') && norm.includes('cement'))) return 'Ambuja Cement';
+      if (norm.includes('cement/product2') || (norm.endsWith('product2.webp') && norm.includes('cement'))) return 'UltraTech Cement';
+      const file = norm.split('/').pop() || '';
       const noExt = file.replace(/\.[^.]+$/, '');
-      const num = noExt.match(/\d+/)?.[0];
-      if (num) return 'Product ' + num;
+      const prodNum = noExt.match(/^product\s*(\d+)$/i);
+      if (prodNum) return 'Product ' + prodNum[1];
       const nice = noExt.replace(/[_-]+/g, ' ').trim();
       return nice ? nice : file;
     }
@@ -4008,7 +4672,8 @@
       'Ganga Pipes',
       'Birla Opus',
       'Mottero',
-      'Appu Xtra'
+      'Appu Xtra',
+      'Cement'
     ];
 
     const APDS_LOGO_OVERRIDES = {
@@ -4017,7 +4682,9 @@
       'Ganga Pipes': 'assets/ganga.webp',
       'Birla Opus': 'assets/birla_opus_2_595513922e.webp',
       'Mottero': 'assets/mottero-logo.webp',
-      'Appu Xtra': 'assets/appuextra.webp'
+      'Appu Xtra': 'assets/appuextra.webp',
+      'Cement': 'assets/cement.webp',
+      'cement': 'assets/cement.webp'
     };
 
     const APDS_TAGLINE_OVERRIDES = {
@@ -4213,6 +4880,15 @@
     function discoverProducts() {
       const mount = document.getElementById('productShowcase');
       if (!mount) return Promise.resolve([]);
+
+      // In local development or offline preview, load verified local catalogue directly
+      const isLocal = window.location.protocol === 'file:' || 
+                      window.location.hostname === 'localhost' || 
+                      window.location.hostname === '127.0.0.1';
+      if (isLocal && typeof LOCAL_CATALOGUE !== 'undefined' && Array.isArray(LOCAL_CATALOGUE) && LOCAL_CATALOGUE.length > 0) {
+        return Promise.resolve(LOCAL_CATALOGUE);
+      }
+
       const cached = cacheRead();
       if (cached && (Date.now() - cached.timestamp < GITHUB_PRODUCT_DISCOVERY.STALE_TTL_MS)) {
         return Promise.resolve(cached.brands);
@@ -4226,6 +4902,9 @@
         .catch(err => {
           if (cached) {
             return cached.brands;
+          }
+          if (typeof LOCAL_CATALOGUE !== 'undefined' && Array.isArray(LOCAL_CATALOGUE) && LOCAL_CATALOGUE.length > 0) {
+            return LOCAL_CATALOGUE;
           }
           const errBox = document.createElement('div');
           errBox.className = 'auto-error';
