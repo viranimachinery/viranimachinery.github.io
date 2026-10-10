@@ -259,19 +259,6 @@
       }
     }
 
-    .cursor {
-      position: fixed;
-      width: 18px;
-      height: 18px;
-      border: 2px solid var(--gold);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 100;
-      transform: translate(-50%, -50%);
-      mix-blend-mode: multiply;
-      transition: width .2s, height .2s;
-    }
-
     nav {
       position: fixed;
       top: 18px;
@@ -1630,23 +1617,6 @@
       100% {
         transform: translateX(100%);
       }
-    }
-
-    .cursor {
-      z-index: 9999;
-      will-change: transform;
-      transition:
-        width .25s var(--ease-premium),
-        height .25s var(--ease-premium),
-        border-color .25s ease,
-        opacity .25s ease;
-    }
-
-    .cursor.hover {
-      background: rgba(212, 167, 44, .16);
-      border-color: rgba(212, 167, 44, .68);
-      width: 46px;
-      height: 46px;
     }
 
     .showcase-mask {
@@ -3133,7 +3103,6 @@
 
 <body>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-  <div class="cursor"></div>
 
   <nav id="nav">
     <a href="#top" aria-label="Go to top of page" style="display:inline-flex">
@@ -3454,12 +3423,6 @@
         mo.observe(document.body, { childList: true, subtree: true, characterData: true });
       } catch (e) { }
     })();
-
-    const cursor = document.querySelector('.cursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
 
     (function () {
       const REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
