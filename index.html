@@ -1818,7 +1818,7 @@
     }
 
     .footer {
-      padding: 40px 0;
+      padding: 36px 0;
       background: #ffffff;
       color: var(--navy);
       border-top: 1px solid rgba(18, 59, 115, 0.08);
@@ -1827,13 +1827,50 @@
     .footer-inner {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
       align-items: center;
     }
 
-    .footer img {
-      width: 180px;
-      border-radius: 20px;
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex: 1 1 280px;
+    }
+
+    .footer-left img {
+      margin: 0;
+      width: clamp(120px, 15vw, 160px);
+      height: auto;
+      object-fit: contain;
+      border-radius: 14px;
+    }
+
+    .footer-center {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--navy);
+      text-align: center;
+      flex: 1 1 auto;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex: 1 1 280px;
+    }
+
+    .footer-right img {
+      height: clamp(40px, 5vw, 50px);
+      width: auto;
+      object-fit: contain;
+      display: block;
+      transition: transform .25s ease;
+    }
+
+    .footer-right img:hover {
+      transform: scale(1.05);
     }
 
     .reveal {
@@ -1925,11 +1962,24 @@
       }
 
       .footer-inner {
-        display: block;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 18px;
       }
 
-      .footer img {
-        margin-bottom: 18px;
+      .footer-left {
+        justify-content: center;
+        flex: none;
+      }
+
+      .footer-center {
+        flex: none;
+      }
+
+      .footer-right {
+        justify-content: center;
+        flex: none;
       }
 
       .showcase-grid,
@@ -3265,7 +3315,7 @@
         </div>
         <div class="loc-box reveal">
           <h3>📞 Contact</h3>
-          <p>
+          <p>   
             Mo. <a href="tel:+919426345155" style="color: #d32f2f; text-decoration: underline;">9426345155</a><br>
             Instagram: <a href=" https://instagram.com/ViraniMachinerydhasa" target="_blank"
               style="color: #d32f2f; text-decoration: underline;">@ViraniMachinerydhasa</a>
@@ -3326,16 +3376,15 @@
   </section>
 
   <footer class="footer">
-    <div class="wrap footer-inner"
-      style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: center;">
-      <div style="display: flex; align-items: center; gap: 16px;">
-        <img src="assets/virani-official-logo.webp" alt="Virani Machinery" loading="lazy" decoding="async"
-          style="margin: 0; width: clamp(130px, 38vw, 180px); height: auto; border-radius: 16px;">
-        <img src="assets/GUJRATI LOGO.webp" alt="Virani Machinery Gujarati logo" loading="lazy" decoding="async"
-          style="margin: 0; width: clamp(130px, 38vw, 180px); height: auto; object-fit: contain; border-radius: 16px;">
+    <div class="wrap footer-inner">
+      <div class="footer-left">
+        <img src="assets/virani-official-logo.webp" alt="Virani Machinery" loading="lazy" decoding="async">
+        <img src="assets/GUJRATI LOGO.webp" alt="Virani Machinery Gujarati logo" loading="lazy" decoding="async">
       </div>
-      <div style="font-weight: 600; font-size: 15px; color: var(--navy); text-align: center;">© 1968 Virani Machinery &
-        Co. • Dhasa Gam</div>
+      <div class="footer-center">© 1968 Virani Machinery &amp; Co. • Dhasa Gam</div>
+      <div class="footer-right">
+        <img src="assets/isi-logo.webp" alt="ISI Mark Certification" loading="lazy" decoding="async" title="ISI Certified Quality Mark">
+      </div>
     </div>
   </footer>
 
