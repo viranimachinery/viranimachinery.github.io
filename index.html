@@ -409,7 +409,6 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-
       .hero-anim .hero-left-content,
       .hero-anim .hero-logo {
         animation: none !important;
@@ -829,6 +828,7 @@
 
     .products {
       background: #fff;
+      padding-top: 50px;
     }
 
     .product-grid {
@@ -1663,35 +1663,35 @@
     }
 
     .section-head h2 {
-      transform: translateY(10px);
-      opacity: 0;
-      transition: transform 1s var(--ease-premium) .05s, opacity .9s ease .05s;
+      transform: none;
+      opacity: 1;
     }
 
-    .premium-in .section-head h2 {
-      transform: translateY(0);
+    .premium-in .section-head h2,
+    .section-head.show h2 {
+      transform: none;
       opacity: 1;
     }
 
     .section-head .eyebrow {
-      transform: translateY(6px);
-      opacity: 0;
-      transition: transform .9s var(--ease-premium), opacity .8s ease;
+      transform: none;
+      opacity: 1;
     }
 
-    .premium-in .section-head .eyebrow {
-      transform: translateY(0);
+    .premium-in .section-head .eyebrow,
+    .section-head.show .eyebrow {
+      transform: none;
       opacity: 1;
     }
 
     .section-head p {
-      transform: translateY(8px);
-      opacity: 0;
-      transition: transform 1s var(--ease-premium) .12s, opacity .9s ease .12s;
+      transform: none;
+      opacity: 1;
     }
 
-    .premium-in .section-head p {
-      transform: translateY(0);
+    .premium-in .section-head p,
+    .section-head.show p {
+      transform: none;
       opacity: 1;
     }
 
@@ -1854,7 +1854,13 @@
       color: #123B73;
       padding: 18px 0;
       white-space: nowrap;
+    }
+    .showcase-full-marquee {
+      width: 100vw;
+      max-width: 100%;
+      margin: 0;
     }
+
 
     .track {
       display: inline-block;
@@ -2393,7 +2399,11 @@
 
       .marquee {
         padding: 14px 0;
+      }
+      .showcase-full-marquee {
+        margin: 0 0 24px 0;
       }
+
 
       .track {
         font-size: 14px;
@@ -3452,16 +3462,24 @@
 
   <section id="products" class="products">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head reveal show" style="margin-bottom: 28px;">
         <div>
           <div class="kicker">PRODUCT SHOWCASE</div>
           <h2>Our products,<br>brand-wise.</h2>
         </div>
-        <p lang="gu">દરેક બ્રાન્ડના ઉત્પાદનોને અલગથી રજૂ કરાયા છે. જ્યાં સુધી પ્રોડક્ટ્સ વધારે હોય ત્યાં સ્લાઇડર મારફતે
-          ફરીથી જુઓ.</p>
+        <p lang="gu">દરેક બ્રાન્ડના ઉત્પાદનોને અલગથી રજૂ કરાયા છે. જ્યાં સુધી પ્રોડક્ટ્સ વધારે હોય ત્યાં સ્લાઇડર મારફતે ફેરવીને જુઓ.</p>
       </div>
+    </div>
 
-      <div class="search-filter-wrap reveal">
+    <!-- Golden-Yellow Pipe Fittings Size Ticker - Full Viewport Width -->
+    <div class="marquee showcase-full-marquee" role="region" aria-label="Pipe and fitting size availability ticker">
+      <div class="track" lang="gu">
+        અમારી પાસે પાઇપ્સ અને તમામ પ્રકારના ફિટિંગ્સ 1/2 ઇંચ <span>•</span> 3/4 ઇંચ <span>•</span> 1 ઇંચ <span>•</span> 1 1/4 ઇંચ <span>•</span> 1 1/2 ઇંચ <span>•</span> 2 ઇંચ <span>•</span> 2 1/2 ઇંચ <span>•</span> 3 ઇંચ <span>•</span> 3 1/2 ઇંચ <span>•</span> 4 ઇંચ <span>•</span> 5 ઇંચ <span>•</span> 6 ઇંચ <span>•</span> 8 ઇંચ સુધીના ઉપલબ્ધ છે. <span>•</span> અમારી પાસે પાઇપ્સ અને તમામ પ્રકારના ફિટિંગ્સ 1/2 ઇંચ <span>•</span> 3/4 ઇંચ <span>•</span> 1 ઇંચ <span>•</span> 1 1/4 ઇંચ <span>•</span> 1 1/2 ઇંચ <span>•</span> 2 ઇંચ <span>•</span> 2 1/2 ઇંચ <span>•</span> 3 ઇંચ <span>•</span> 3 1/2 ઇંચ <span>•</span> 4 ઇંચ <span>•</span> 5 ઇંચ <span>•</span> 6 ઇંચ <span>•</span> 8 ઇંચ સુધીના ઉપલબ્ધ છે. <span>•</span>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="search-filter-wrap reveal" style="margin-top: 28px;">
         <div class="lp-instruction" aria-live="polite">
           <span class="lp-icon" aria-hidden="true">🖐</span>
           <div>
@@ -3850,7 +3868,7 @@
             }
           });
         },
-        { threshold: .18 }
+        { threshold: .01 }
       );
 
       function registerSectionReveals() {
